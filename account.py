@@ -5,7 +5,7 @@ class Account():
 
 	urlWithEntity = 'http://api.reimaginebanking.com:80/accounts'
 	baseUrl = 'http://api.reimaginebanking.com:80'
-	apiKey = '3eab5d0a550c080eab8b72ccbcbde8f8'
+	apiKey = '3eab5d0a550c080eab8b72ccbcbde8f8'				# test API key
 
 	# GET
 
@@ -41,8 +41,9 @@ class Account():
 		r = requests.put(url, params=payload)
 		print r.content
 		
-
+# Output to demonstrate updateAccount() issue
 a = Account()
 pl = {"rewards": 9}
+print a.getOne('555bed95a520e036e52b25e7')
 a.updateAccount('555bed95a520e036e52b25e7', pl)
 print a.getOne('555bed95a520e036e52b25e7')
