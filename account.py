@@ -35,15 +35,16 @@ class Account():
 
 	# PUT
 
-	def updateAccount(self, accId, acc):
+	def updateAccount(self, accId, body):
 		url = '%s/%s?key=%s' % (self.urlWithEntity, accId, self.apiKey)
-		payload = {'accountId': accId, 'acc': acc}
-		r = requests.put(url, params=payload)
+		r = requests.put(url, params=body)
 		print r.content
+		return r.content
+
 		
 # Output to demonstrate updateAccount() issue
 a = Account()
-pl = {"rewards": 9}
+pl = {"nickname": "Update success!"}
 print a.getOne('555bed95a520e036e52b25e7')
 a.updateAccount('555bed95a520e036e52b25e7', pl)
 print a.getOne('555bed95a520e036e52b25e7')
