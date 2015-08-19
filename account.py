@@ -34,16 +34,18 @@ class Account():
 		return data
 
 	# PUT
-
-	def updateAccount(self, accId, acc):
-		url = '%s/%s?key=%s' % (self.urlWithEntity, accId, self.apiKey)
-		payload = {'accountId': accId, 'acc': acc}
-		r = requests.put(url, params=payload)
+	# PUT vs. POST ??!! 
+	def updateAccount(self, accId, data):
+		url = '%s/%s' % (self.urlWithEntity, accId)
+		headers = {'content-type': 'application/json'}
+		params = {'key': self.apiKey}
+		r = requests.put(url, params=params, data=json.dumps(data), headers=headers)
 		print r.content
 		
 # Output to demonstrate updateAccount() issue
 a = Account()
-pl = {"rewards": 9}
+pl = {"nickname": "newname"}
 print a.getOne('555bed95a520e036e52b25e7')
 a.updateAccount('555bed95a520e036e52b25e7', pl)
 print a.getOne('555bed95a520e036e52b25e7')
+
