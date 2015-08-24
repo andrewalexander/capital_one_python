@@ -38,20 +38,20 @@ class Account():
 		url = '%s/%s' % (self.urlWithEntity, accId)
 		headers = {'content-type': 'application/json'}
 		params = {'key': self.apiKey}
-		r = requests.put(url, params=params, data=json.dumps(data), headers=headers)
-		return r.content
+		response = requests.put(url, params=params, data=json.dumps(data), headers=headers)
+		return response.content
 
 	# POST
 	def createAccount(self, custId, data):
 		url = '%s/customers/%s/accounts?key=%s' % (self.baseUrl, custId, self.apiKey)
 		headers = {'content-type': 'application/json'}
 		params = {'key': self.apiKey}
-		r = requests.post(url, params=params, data=json.dumps(data), headers=headers)
-		print r.content
-		return r.content
+		response = requests.post(url, params=params, data=json.dumps(data), headers=headers)
+		print response.content
+		return response.content
 
 	# DELETE
 	def deleteAccount(self, accId):
 		url = '%s/%s?key=%s' % (self.urlWithEntity, accId, self.apiKey)
-		r = requests.delete(url)
-		return r.content
+		response = requests.delete(url)
+		return response.content
