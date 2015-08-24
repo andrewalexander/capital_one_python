@@ -55,6 +55,3 @@ class Account():
 		url = '%s/%s?key=%s' % (self.urlWithEntity, accId, self.apiKey)
 		r = requests.delete(url)
 		return r.content
-
-a = Account()
-print a.getOne('55ca17542644c1aa1065162a')
