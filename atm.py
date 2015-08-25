@@ -8,6 +8,7 @@ class Atm():
 	apiKey = '3eab5d0a550c080eab8b72ccbcbde8f8'				# test API key
 
 	# GET
+	
 	def getAll(self):
 		url = '%s?key=%s' % (self.urlWithEntity, self.apiKey)
 		response = requests.get(url)

@@ -3,8 +3,8 @@ import requests
 
 class Account():
 
-	urlWithEntity = 'http://api.reimaginebanking.com:80/accounts'
 	baseUrl = 'http://api.reimaginebanking.com:80'
+	urlWithEntity = baseUrl + '/accounts'
 	apiKey = '3eab5d0a550c080eab8b72ccbcbde8f8'				# test API key
 
 	# GET
@@ -34,6 +34,7 @@ class Account():
 		return data
 
 	# PUT
+
 	def updateAccount(self, accId, data):
 		url = '%s/%s' % (self.urlWithEntity, accId)
 		headers = {'content-type': 'application/json'}
@@ -42,6 +43,7 @@ class Account():
 		return response.content
 
 	# POST
+
 	def createAccount(self, custId, data):
 		url = '%s/customers/%s/accounts?key=%s' % (self.baseUrl, custId, self.apiKey)
 		headers = {'content-type': 'application/json'}
@@ -51,7 +53,12 @@ class Account():
 		return response.content
 
 	# DELETE
+	
 	def deleteAccount(self, accId):
 		url = '%s/%s?key=%s' % (self.urlWithEntity, accId, self.apiKey)
 		response = requests.delete(url)
 		return response.content
+
+a = Account()
+print a.getAll()
+# print a.getOne('555bed95a520e036e52b262e')
