@@ -3,9 +3,9 @@ import json
 
 class Withdrawal():
 
-	baseUrl = 'http://api.reimaginebanking.com:80'
+	baseUrl = 'http://api.nessiebanking.com:80'
 	urlWithEntity = baseUrl + '/accounts'
-	apiKey = '3eab5d0a550c080eab8b72ccbcbde8f8'				# test API key
+	apiKey = '330681dbf73436832cafac4f11622452'				# test API key
 
 	# GET
 
@@ -15,8 +15,8 @@ class Withdrawal():
 		data = json.loads(str(json.dumps(response.text)))
 		return data
 
-	def getOneByAccountIdWithdrawalId(self, accId, withdrawalId):
-		url = '%s/%s/withdrawals/%s?key=%s' % (self.urlWithEntity, accId, withdrawalId, self.apiKey)
+	def getOne(self, withdrawalId):
+		url = '%s/withdrawals/%s?key=%s' % (self.url, withdrawalId, self.apiKey)
 		response = requests.get(url)
 		data = json.loads(str(json.dumps(response.text)))
 		return data
@@ -29,10 +29,10 @@ class Withdrawal():
 			# 'description': ""
 			# }
 
-	def updateWithdrawal(self, accId, withdrawalId, withdrawal):
-		url = '%s/%s/withdrawals/%s?key=%s' % (self.urlWithEntity, accId, withdrawalId, self.apiKey)
+	def updateWithdrawal(self, withdrawalId, withdrawal):
+		url = '%s/withdrawals/%s?key=%s' % (self.urlWithEntity, withdrawalId, self.apiKey)
 		headers = {
-		'Authorization': 'Token token=<3eab5d0a550c080eab8b72ccbcbde8f8>',
+		'Authorization': 'Token token=<330681dbf73436832cafac4f11622452>',
 		'content-type': 'application/json'
 		}
 		params = {'key': self.apiKey} 
@@ -59,11 +59,12 @@ class Withdrawal():
 
 	# DELETE
 
-	def deleteWithdrawal(self, accId, withdrawalId):
-		url = '%s/%s/withdrawals/%s?key=%s' % (self.urlWithEntity, accId, withdrawalId, self.apiKey)
+	def deleteWithdrawal(self, withdrawalId):
+		url = '%s/withdrawals/%s?key=%s' % (self.urlWithEntity, accId, withdrawalId, self.apiKey)
 		response = requests.delete(url)
 		return response.content
 
+# Test Data
 w = Withdrawal()
 accId = '555bed95a520e036e52b262e'
 withdrawalId = '555d6927c34e2890417b274d'

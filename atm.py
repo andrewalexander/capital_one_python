@@ -3,9 +3,9 @@ import requests
 
 class Atm():
 
-	urlWithEntity = 'http://api.reimaginebanking.com:80/atms'
-	baseUrl = 'http://api.reimaginebanking.com:80'
-	apiKey = '3eab5d0a550c080eab8b72ccbcbde8f8'				# test API key
+	urlWithEntity = 'http://api.nessiebanking.com:80/atms'
+	baseUrl = 'http://api.nessiebanking.com:80'
+	apiKey = '330681dbf73436832cafac4f11622452'				# test API key
 
 	# GET
 	
@@ -26,3 +26,9 @@ class Atm():
 		response = requests.get(url)
 		data = json.loads(str(json.dumps(response.text)))
 		return data
+
+# Test Data
+# atm = Atm()
+# print atm.getAll()
+# print atm.getAllByLocation(38.882163, -77.1113105, 1)
+# print atm.getOne('555bed94a520e036e52b1d7b')

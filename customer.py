@@ -3,10 +3,10 @@ import requests
 
 class Customer():
 
-	baseUrl = 'http://api.reimaginebanking.com:80'
+	baseUrl = 'http://api.nessiebanking.com:80'
 	urlWithEntity = baseUrl + '/customers'
 	urlWithAccEntity = baseUrl + '/accounts'
-	apiKey = '3eab5d0a550c080eab8b72ccbcbde8f8'				# test API key
+	apiKey = '330681dbf73436832cafac4f11622452'				# test API key
 
 	# GET
 	
@@ -30,7 +30,7 @@ class Customer():
 
 	# PUT
 
-		# Customer data format
+		# Customer format
 			# {
 			# 'address': {
 			# 'street_number': "",
@@ -41,16 +41,37 @@ class Customer():
 			# }
 			# }
 
-	def updateCustomer(self, custId, data): 
+	def updateCustomer(self, custId, customer): 
 		url = '%s/%s?key=%s' % (self.urlWithEntity, custId, self.apiKey)
 		headers = {'content-type': 'application/json'}
 		params = {'key': self.apiKey}
-		response = requests.put(url, params=params, data=json.dumps(data), headers=headers)
-		print response
+		response = requests.put(url, params=params, data=json.dumps(customer), headers=headers)
+		return response
+
+	# POST
+		# Customer format
+		# {
+		# 'first_name': "",
+		# 'last_name': "",
+		# 'address': {
+			# 'street_number': "",
+			# 'street_name': "",
+			# 'city': "",
+			# 'state': "",
+			# 'zip': ""
+		# }
+		# }
+
+	def createCustomer(self, customer):
+		url = '%s?key=%s' % (self.urlWithEntity, self.apiKey)
+		headers = {'content-type': 'application/json'}
+		params = {'key': self.apiKey}
+		response = requests.post(url, params=params, data=json.dumps(customer), headers=headers)
 		return response
 
 c = Customer()
 custId = '555bed95a520e036e52b23c1'
+accId = '555bed95a520e036e52b262e'
 payload = {
 	'address': {
 	'street_number': '123',
@@ -60,6 +81,21 @@ payload = {
 	'zip': '16801'
 	}
 }
-c.updateCustomer(custId, payload)
+createPayload = {
+	'first_name': 'Cy',
+	'last_name': 'Young',
+	'address': {
+	'street_number': '111',
+	'street_name': 'Baseball Ave',
+	'city': 'NYC',
+	'state': 'NY',
+	'zip': '12345'
+	}
+}
+# print c.getAll()
+# print c.getOne(custId)
+# print c.getOneByAccountId(accId)
+# print c.updateCustomer(custId, payload)			# 401 unauthorized
+# print c.createCustomer(createPayload)				# 401 unauthorized
 
 

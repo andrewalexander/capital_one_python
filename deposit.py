@@ -3,9 +3,9 @@ import requests
 
 class Deposit():
 
-	baseUrl = 'http://api.reimaginebanking.com:80'
+	baseUrl = 'http://api.nessiebanking.com:80'
 	urlWithEntity = baseUrl + '/accounts'
-	apiKey = '3eab5d0a550c080eab8b72ccbcbde8f8'				# test API key
+	apiKey = '330681dbf73436832cafac4f11622452'				# test API key
 
 	# GET
 	
@@ -15,8 +15,8 @@ class Deposit():
 		data = json.loads(str(json.dumps(response.text)))
 		return data
 
-	def getOneByAccountIdDepositId(self, accId, depositId):
-		url = '%s/%s/deposits/%s?key=%s' % (self.urlWithEntity, accId, depositId, self.apiKey)
+	def getOne(self, depositId):
+		url = '%s/deposits/%s?key=%s' % (self.url, depositId, self.apiKey)
 		response = requests.get(url)
 		data = json.loads(str(json.dumps(response.text)))
 		return data
@@ -29,19 +29,19 @@ class Deposit():
 		# 'description': ""
 		# }
 
-	def updateDeposit(self, accId, depositId, deposit):
-		url = '%s/%s/deposits/%s?key=%s' % (self.urlWithEntity, accId, depositId, self.apiKey)
+	def updateDeposit(self, depositId, deposit):
+		url = '%s/deposits/%s?key=%s' % (self.urlWithEntity, depositId, self.apiKey)
 		headers = {'content-type': 'application/json'}
 		params = {'key': self.apiKey}
 		response = requests.put(url, params=params, data=json.dumps(deposit), headers=headers)
-		return response
+		return response.content
 
 	# POST
 		# Deposit format
 			# {
 			# 'medium': "balance or rewards",
 			# 'transaction_date': "",
-			# 'status': "",
+			# 'status': "pending or cancelled or recurring",
 			# 'amount': 0,
 			# 'description': ""
 			# }
@@ -60,8 +60,14 @@ class Deposit():
 		return response
 
 # Test Data
-# d = Deposit()
-# accId = '555bed95a520e036e52b262e'
-# depositId = '55c8fb422644c1aa10651625'
-# print d.getAllByAccountId('accId')
-# print d.getOneByAccountIdDepositId('accId', 'depositId')
+d = Deposit()
+accId = '555bed95a520e036e52b262e'
+depositId = '55c8fb422644c1aa10651625'
+updatePayload = {
+	'medium': 'balance',
+	'amount': "0",
+	'description': 'successful update'
+}
+# print d.getAllByAccountId(accId)
+# print d.getOneByAccountIdDepositId(accId, depositId)
+print d.updateDeposit(accId, depositId, updatePayload)

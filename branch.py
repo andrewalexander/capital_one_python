@@ -3,7 +3,7 @@ import requests
 
 class Branch():
 
-	baseUrl = 'http://api.reimaginebanking.com:80'
+	baseUrl = 'http://api.nessiebanking.com:80'
 	urlWithEntity = baseUrl + '/branches'
 	apiKey = '3eab5d0a550c080eab8b72ccbcbde8'
 
@@ -22,4 +22,4 @@ class Branch():
 		return data
 
 br = Branch()
-print br.getAll()
+# print br.getAll()		# 401 unauthorized

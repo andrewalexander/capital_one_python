@@ -3,12 +3,12 @@ import requests
 
 class Account():
 
-	baseUrl = 'http://api.reimaginebanking.com:80'
+	baseUrl = 'http://api.nessiebanking.com:80'
 	urlWithEntity = baseUrl + '/accounts'
-	apiKey = '3eab5d0a550c080eab8b72ccbcbde8f8'				# test API key
+	apiKey = '330681dbf73436832cafac4f11622452'				# test API key
 
 	# GET
-
+	
 	def getAll(self):
 		url = '%s?&key=%s' % (self.urlWithEntity, self.apiKey)
 		response = requests.get(url)
@@ -34,23 +34,33 @@ class Account():
 		return data
 
 	# PUT
+		# Account format
+		# {
+		# 'nickname': ""
+		# }
 
-	def updateAccount(self, accId, data):
+	def updateAccount(self, accId, account):
 		url = '%s/%s' % (self.urlWithEntity, accId)
 		headers = {'content-type': 'application/json'}
 		params = {'key': self.apiKey}
-		response = requests.put(url, params=params, data=json.dumps(data), headers=headers)
+		response = requests.put(url, params=params, data=json.dumps(account), headers=headers)
 		return response.content
 
 	# POST
+		# Account format
+		# { 
+		# 'type': "",
+		# 'nickname': "",
+		# 'rewards': 0,
+		# 'balance': 0
+		# }
 
-	def createAccount(self, custId, data):
+	def createAccount(self, custId, account):
 		url = '%s/customers/%s/accounts?key=%s' % (self.baseUrl, custId, self.apiKey)
 		headers = {'content-type': 'application/json'}
 		params = {'key': self.apiKey}
-		response = requests.post(url, params=params, data=json.dumps(data), headers=headers)
-		print response.content
-		return response.content
+		response = requests.post(url, params=params, data=json.dumps(account), headers=headers)
+		return response
 
 	# DELETE
 	
@@ -60,5 +70,17 @@ class Account():
 		return response.content
 
 a = Account()
-print a.getAll()
-# print a.getOne('555bed95a520e036e52b262e')
+accId = '555bed95a520e036e52b262e'
+custId = '555bed95a520e036e52b23c1'
+account = {'nickname': 'Brand New Update'}
+accountToCreate = {
+	'type': 'Checking',
+	'nickname': 'Brand New Test Account',
+	'rewards': 0,
+	'balance': 300
+}
+# print a.getAll()
+# print a.getOne(accId)
+# print a.getAllByCustomerId(custId)
+# print a.updateAccount(accId, account)
+# print a.createAccount(custId, accountToCreate)		# 401 unauthorized
