@@ -3,10 +3,10 @@ import json
 
 class Transfer():
 
-	baseUrl = "http://api.nessiebanking.com:80"
+	baseUrl = "http://api.reimaginebanking.com:80"
 	accBaseUrl = baseUrl + "/accounts"
 	transBaseUrl = baseUrl + "/transfers"
-	apiKey = '330681dbf73436832cafac4f11622452'
+	apiKey = 'ff1fbfb0f1bfaefb769e25299805ddf1'
 
 	#GET
 

@@ -3,9 +3,9 @@ import json
 
 class Withdrawal():
 
-	baseUrl = 'http://api.nessiebanking.com:80'
+	baseUrl = 'http://api.reimaginebanking.com:80'
 	urlWithEntity = baseUrl + '/accounts'
-	apiKey = '330681dbf73436832cafac4f11622452'				# test API key
+	apiKey = 'ff1fbfb0f1bfaefb769e25299805ddf1'				# test API key
 
 	# GET
 
@@ -32,7 +32,7 @@ class Withdrawal():
 	def updateWithdrawal(self, withdrawalId, withdrawal):
 		url = '%s/withdrawals/%s?key=%s' % (self.urlWithEntity, withdrawalId, self.apiKey)
 		headers = {
-		'Authorization': 'Token token=<330681dbf73436832cafac4f11622452>',
+		'Authorization': 'Token token=<ff1fbfb0f1bfaefb769e25299805ddf1>',
 		'content-type': 'application/json'
 		}
 		params = {'key': self.apiKey} 

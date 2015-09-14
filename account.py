@@ -3,9 +3,9 @@ import requests
 
 class Account():
 
-	baseUrl = 'http://api.nessiebanking.com:80'
+	baseUrl = 'http://api.reimaginebanking.com:80'
 	urlWithEntity = baseUrl + '/accounts'
-	apiKey = '330681dbf73436832cafac4f11622452'				# test API key
+	apiKey = 'ff1fbfb0f1bfaefb769e25299805ddf1'				# test API key
 
 	# GET
 	
@@ -70,17 +70,17 @@ class Account():
 		return response.content
 
 a = Account()
-accId = '555bed95a520e036e52b262e'
+accId = json.loads(a.getAll())[0]["_id"]
 custId = '555bed95a520e036e52b23c1'
-account = {'nickname': 'Brand New Update'}
-accountToCreate = {
+accountPut = {'nickname': 'Brand New Update'}
+accountPost = {
 	'type': 'Checking',
 	'nickname': 'Brand New Test Account',
 	'rewards': 0,
 	'balance': 300
 }
-# print a.getAll()
+# print a.getAll
 # print a.getOne(accId)
 # print a.getAllByCustomerId(custId)
-# print a.updateAccount(accId, account)
-# print a.createAccount(custId, accountToCreate)		# 401 unauthorized
+# print a.updateAccount(accId, accountPut)
+# print a.createAccount(custId, accountPost)		# 401 unauthorized

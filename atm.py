@@ -3,9 +3,9 @@ import requests
 
 class Atm():
 
-	urlWithEntity = 'http://api.nessiebanking.com:80/atms'
-	baseUrl = 'http://api.nessiebanking.com:80'
-	apiKey = '330681dbf73436832cafac4f11622452'				# test API key
+	baseUrl = 'http://api.reimaginebanking.com:80'
+	urlWithEntity = baseUrl + '/atms'
+	apiKey = 'ff1fbfb0f1bfaefb769e25299805ddf1'				# test API key
 
 	# GET
 	

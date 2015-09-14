@@ -3,7 +3,7 @@ import requests
 
 class Bill():
 
-	baseUrl = 'http://api.nessiebanking.com:80'
+	baseUrl = 'http://api.reimaginebanking.com:80'
 	accBaseUrl = baseUrl + "/accounts"
 	custBaseUrl = baseUrl + "/customers"
 	apiKey = '3eab5d0a550c080eab8b72ccbcbde8'
@@ -65,8 +65,9 @@ class Bill():
 b = Bill()
 accId = '555bed95a520e036e52b262e'
 billId = '555d6da5f5bfc41b4443ef9a'
+billPut = { 'nickname': 'updated payment' }
 custId = '555bed95a520e036e52b23c1'
-bill = {
+billPost = {
 	'status': 'pending',
 	'payee': 'Comcast',
 	'nickname': 'monthly payment',

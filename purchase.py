@@ -3,9 +3,9 @@ import json
 
 class Purchase():
 
-	baseUrl = "http://api.nessiebanking.com:80"
+	baseUrl = "http://api.reimaginebanking.com:80"
 	urlWithEntity = baseUrl + "/purchases"
-	apiKey = '330681dbf73436832cafac4f11622452'				# test API key
+	apiKey = 'ff1fbfb0f1bfaefb769e25299805ddf1'				# test API key
 
 
 	# GET
