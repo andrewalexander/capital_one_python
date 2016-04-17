@@ -69,6 +69,12 @@ bill = {
     }
 }
 
+branch = {
+    'get_one': {
+        'branch_id': '56c66be5a73e4927415071a9'
+    }
+}
+
 customer = {
     'get_one': {
         'cust_id': '56c66be6a73e4927415074ca'
@@ -102,3 +108,4 @@ customer = {
         }
     }
 }
+

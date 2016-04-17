@@ -43,7 +43,7 @@ class Atm:
             in 60+ individual API calls to Nessie.
 
         Returns:
-            dict with status code and list of ATMs
+            dict with status code (200) and list of ATMs
         """
         url = '%s?key=%s' % (self.url_with_entity, self.api_key)
         response = requests.get(url)
@@ -64,7 +64,7 @@ class Atm:
             lng: Longitude of location
             rad: Radius (in miles) around (lat, lng) to fetch results for
         Returns:
-            dict with status code and list of ATMs around given location
+            dict with status code (200) and list of ATMs around given location
         """
         url = ('%s?lat=%s&lng=%s&rad=%s&key=%s') % (self.url_with_entity, lat, lng, rad, self.api_key)
         response = requests.get(url)
@@ -83,7 +83,7 @@ class Atm:
         Args:
             id: ATM ID to get description for
         Returns:
-            dict with status code and single ATM description
+            dict with status code (200) and single ATM description
         """
         url = '%s/%s?key=%s' % (self.url_with_entity, id, self.api_key)
         response = requests.get(url)

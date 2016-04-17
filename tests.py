@@ -101,6 +101,21 @@ class TestBillClass(unittest.TestCase):
         self.assertEqual(response['code'], 204, msg='Received a {} status code'.format(response['code']))
 
 
+
+class TestBranchClass(unittest.TestCase):
+    branch = branch.Branch()
+
+    def test_get_all(self):
+        response = self.branch.get_all()
+        self.assertEqual(response['code'], 200, msg='Received a {} status code'.format(response['code']))
+        self.assertTrue(isinstance(response['branches'], list), msg='Did not get a list of branches')
+
+    def test_get_one(self):
+        response = self.branch.get_one(**context.branch['get_one'])
+        self.assertEqual(response['code'], 200, msg='Received a {} status code'.format(response['code']))
+        self.assertTrue(isinstance(response['branch'], dict), msg='Did not get branch')
+
+
 class TestCustomerClass(unittest.TestCase):
     customer = customer.Customer()
 
