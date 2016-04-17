@@ -10,7 +10,6 @@ class Bill():
         self.cust_base_url = self.base_url + "/customers"
         self.api_key = config.api_key
 
-    # GET
     def get_all_by_account_id(self, acc_id):
         """
         Get all bills associated with the given account ID
@@ -62,17 +61,6 @@ class Bill():
             'bills': response.json()
         }
 
-    # PUT
-    # Bill format
-    # {
-    # 'status': ""
-    # 'payee': ""
-    # 'nickname': "",
-    # 'payment_date': ""
-    # 'recurring_date': 15
-    # 'payment_amount': 100
-    # }
-
     def update_bill(self, bill_id, bill):
         """
         Update metadata associated with a bill
@@ -83,56 +71,67 @@ class Bill():
           'payee': 'string',
           'nickname': 'string',
           'payment_date': 'YYYY-MM-DD',
-          'recurring_date': 1
+          'recurring_date': int [1-31],
+          'payment_amount': int
         }
 
         Args:
             bill_id: ID of the bill to update
             bill: dict containing the new metadata for the bill
         Returns:
-            dict with status code and response from Nessie backend
+            dict with status code (202) and response from Nessie backend
         """
-        url = '%s/bills/%s?key=%s' % (self.account_base_url, bill_id, self.api_key)
+        url = '%s/bills/%s?key=%s' % (self.base_url, bill_id, self.api_key)
         headers = {'content-type': 'application/json'}
-        # params = {'key': self.api_key}
         response = requests.put(url, params=None, data=json.dumps(bill), headers=headers)
+
         return {
             'code': response.status_code,
-            'message': response.json()['message']
+            'message': response.json()['message'] or None
         }
 
-    # POST
-    # Bill format is identical to PUT
-
     def create_bill(self, acc_id, bill):
+        """
+        Create a new bill inside a given account
+
+        Format for POST Request:
+        {
+          'status': 'pending' | 'cancelled' | 'completed' | 'recurring' ,
+          'payee': 'string',
+          'nickname': 'string',
+          'payment_date': 'YYYY-MM-DD',
+          'recurring_date': int [1-31],
+          'payment_amount: int
+        }
+
+        Args:
+            acc_id: ID of the account where bill will be added
+            bill: dict containing the new metadata for the bill
+        Returns:
+            dict with status code (201) and response object from Nessie backend
+        """
         url = '%s/%s/bills?key=%s' % (self.account_base_url, acc_id, self.api_key)
         headers = {'content-type': 'application/json'}
-        params = {'key': self.api_key}
-        response = requests.post(url, params=params, data=json.dumps(bill), headers=headers)
-        return response.content
+        # params = {'key': self.api_key}
+        response = requests.post(url, params=None, data=json.dumps(bill), headers=headers)
 
-    # DELETE
+        return {
+            'code': response.status_code,
+            'message': response.json()['message'] or None,
+            'objectCreated': response.json()['objectCreated'] or None
+        }
 
-    def delete_bill(self, acc_id, bill_id):
-        url = '%s/%s/bills/%s?key=%s'
+    def delete_bill(self, bill_id):
+        """
+        Delete bill for given bill ID
+
+        Args:
+            bill_id: ID of the bill to delete
+        Returns:
+            dict with status code (204)
+        """
+        url = '%s/bills/%s?key=%s' % (self.base_url, bill_id, self.api_key)
         response = requests.delete(url)
-        return response.content
-
-
-b = Bill()
-acc_id = '555bed95a520e036e52b262e'
-bill_id = '555d6da5f5bfc41b4443ef9a'
-bill_put = {'nickname': 'updated payment'}
-cust_id = '555bed95a520e036e52b23c1'
-bill_post = {
-    'status': 'pending',
-    'payee': 'Comcast',
-    'nickname': 'monthly payment',
-    'payment_date': '2015-08-22',
-    'recurring_date': 20,
-    'payment_amount': 60
-}
-# print b.get_all_by_customer_id(cust_id)					# 401 unauthorized
-# print b.getOne(acc_id, bill_id)			                # 401 unauthorized
-# print b.update_bill(acc_id, bill_id, bill)					# 401 unauthorized			
-# print b.create_bill(acc_id, bill)							# 401 unauthorized
+        return {
+            'code': response.status_code
+        }

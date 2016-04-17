@@ -63,7 +63,8 @@ bill = {
             'payee': 'Comcast',
             'nickname': 'monthly payment',
             'payment_date': '2015-08-22',
-            'recurring_date': 20
+            'recurring_date': 20,
+            'payment_amount': 150
         }
     }
 }

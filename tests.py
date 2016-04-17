@@ -85,8 +85,18 @@ class TestBillClass(unittest.TestCase):
 
     def test_update_bill(self):
         response = self.bill.update_bill(**context.bill['update_bill'])
-        self.assertEqual(response['code'], 200, msg='Received a {} status code'.format(response['code']))
-        self.assertTrue(isinstance(response['message'], basestring), msg='Did not get a list of accounts')
+        self.assertEqual(response['code'], 202, msg='Received a {} status code'.format(response['code']))
+        self.assertTrue(isinstance(response['message'], basestring), msg='Did not get a response')
+
+    def test_create_and_delete_bill(self):
+        response = self.bill.create_bill(**context.bill['create_bill'])
+        self.assertEqual(response['code'], 201, msg='Received a {} status code'.format(response['code']))
+        self.assertTrue(isinstance(response['message'], basestring), msg='Did not get a response')
+
+        # delete the bill that was just created
+        response = self.bill.delete_bill(response['objectCreated']['_id'])
+        self.assertEqual(response['code'], 204, msg='Received a {} status code'.format(response['code']))
+
 
 if __name__ == '__main__':
     fullTestSuite = unittest.TestLoader().loadTestsFromTestCase(TestAccountClass)
