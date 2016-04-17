@@ -1,16 +1,26 @@
 import json
 import requests
+import config
 
 
 class Bill():
-    base_url = 'http://api.reimaginebanking.com:80'
-    z = base_url + "/accounts"
-    cust_base_url = base_url + "/customers"
-    api_key = '3eab5d0a550c080eab8b72ccbcbde8'
+    def __init__(self):
+        self.base_url = config.base_url
+        self.account_base_url = self.base_url + "/accounts"
+        self.cust_base_url = self.base_url + "/customers"
+        self.api_key = config.api_key
 
     # GET
     def get_all_by_account_id(self, acc_id):
-        url = '%s/%s/bills?key=%s' % (self.z, acc_id, self.api_key)
+        """
+        Get all bills associated with the given account ID
+
+        Args:
+            acc_id: Account ID to fetch all bills for
+        Returns:
+            dict with status code and list of bills
+        """
+        url = '%s/%s/bills?key=%s' % (self.account_base_url, acc_id, self.api_key)
         response = requests.get(url)
         data = json.loads(str(json.dumps(response.text)))
         return data
@@ -39,7 +49,7 @@ class Bill():
     # }
 
     def update_bill(self, bill_id, bill):
-        url = '%s/bills/%s?key=%s' % (self.z, bill_id, self.api_key)
+        url = '%s/bills/%s?key=%s' % (self.account_base_url, bill_id, self.api_key)
         headers = {'content-type': 'application/json'}
         params = {'key': self.api_key}
         response = requests.put(url, params=params, data=json.dumps(bill), headers=headers)
@@ -49,7 +59,7 @@ class Bill():
     # Bill format is identical to PUT
 
     def create_bill(self, acc_id, bill):
-        url = '%s/%s/bills?key=%s' % (self.z, acc_id, self.api_key)
+        url = '%s/%s/bills?key=%s' % (self.account_base_url, acc_id, self.api_key)
         headers = {'content-type': 'application/json'}
         params = {'key': self.api_key}
         response = requests.post(url, params=params, data=json.dumps(bill), headers=headers)

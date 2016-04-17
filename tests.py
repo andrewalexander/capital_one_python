@@ -68,6 +68,6 @@ class TestAtmClass(unittest.TestCase):
 
 if __name__ == '__main__':
     fullTestSuite = unittest.TestLoader().loadTestsFromTestCase(TestAccountClass)
-    fullTestSuite = unittest.TestLoader().loadTestsFromTestCase(TestAtmClass)
+    fullTestSuite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestAtmClass))
     unittest.TextTestRunner(verbosity=2).run(fullTestSuite)
 

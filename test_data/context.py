@@ -35,3 +35,31 @@ atm = {
         'id': '56c66be5a73e492741506f30'
     }
 }
+
+bill = {
+    'get_all_by_account_id': {
+        'acc_id': ''
+    },
+    'get_all_by_customer_id': {
+        'cust_id': ''
+    },
+    'get_one': {
+        'bill_id': ''
+    },
+    'update_bill': {
+        'bill_id': '',
+        'bill': {
+            'nickname': 'updated payment'
+        }
+    },
+    'create_bill': {
+        'acc_id': '',
+        'bill': {
+            'status': 'pending',
+            'payee': 'Comcast',
+            'nickname': 'monthly payment',
+            'payment_date': '2015-08-22',
+            'recurring_date': 20
+        }
+    }
+}
