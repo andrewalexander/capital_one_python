@@ -36,7 +36,7 @@ class Account:
             acc_type: 'string'
                 Valid options: 'Credit Card' | 'Checking' | 'Savings'
         Returns:
-            dict with status code and list of all accounts of the requested type
+            dict with status code (200) and list of all accounts of the requested type
         """
         url = '%s?type=%s&key=%s' % (self.url_with_entity, acc_type, self.api_key)
         response = requests.get(url)
