@@ -68,3 +68,37 @@ bill = {
         }
     }
 }
+
+customer = {
+    'get_one': {
+        'cust_id': '56c66be6a73e4927415074ca'
+    },
+    'get_one_by_account_id': {
+        'acc_id': '56c66be7a73e492741508102'
+    },
+    'update_customer': {
+        'cust_id': '56c66be6a73e4927415074ca',
+        'customer': {
+            'address': {
+                'street_number': '42',
+                'street_name': 'Life Universe Everything Way',
+                'city': 'Undefined',
+                'state': 'CO',
+                'zip': '42424'
+            }
+        }
+    },
+    'create_customer': {
+        'customer': {
+            'address': {
+                'street_number': '1',
+                'street_name': 'Infinite Circle',
+                'city': 'Nontain View',
+                'state': 'CA',
+                'zip': '12345'
+            },
+            'first_name': 'Test',
+            'last_name': 'Customer'
+        }
+    }
+}
