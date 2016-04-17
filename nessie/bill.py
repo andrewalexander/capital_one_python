@@ -22,20 +22,45 @@ class Bill():
         """
         url = '%s/%s/bills?key=%s' % (self.account_base_url, acc_id, self.api_key)
         response = requests.get(url)
-        data = json.loads(str(json.dumps(response.text)))
-        return data
+
+        return {
+            'code': response.status_code,
+            'bills': response.json()
+        }
 
     def get_one(self, bill_id):
+        """
+        Get a single bill description from given bill ID
+
+        Args:
+            bill_id: ID of bill to fetch
+        Returns:
+            dict of status code and single bill
+        """
         url = '%s/bills/%s?key=%s' % (self.base_url, bill_id, self.api_key)
         response = requests.get(url)
-        data = json.loads(str(json.dumps(response.text)))
-        return data
+
+        return {
+            'code': response.status_code,
+            'bill': response.json()
+        }
 
     def get_all_by_customer_id(self, cust_id):
+        """
+        Get all bills associated with the given customer ID
+
+        Args:
+            cust_id: ID of the customer to fetch the bills for
+        Returns:
+            dict of status code and list of bills
+        """
         url = '%s/%s/bills?key=%s' % (self.cust_base_url, cust_id, self.api_key)
         response = requests.get(url)
-        data = json.loads(str(json.dumps(response.text)))
-        return data
+
+        return {
+            'code': response.status_code,
+            'bills': response.json()
+        }
 
     # PUT
     # Bill format
@@ -49,11 +74,32 @@ class Bill():
     # }
 
     def update_bill(self, bill_id, bill):
+        """
+        Update metadata associated with a bill
+
+        Format for PUT Request:
+        {
+          'status': 'pending' | 'cancelled' | 'completed' | 'recurring' ,
+          'payee': 'string',
+          'nickname': 'string',
+          'payment_date': 'YYYY-MM-DD',
+          'recurring_date': 1
+        }
+
+        Args:
+            bill_id: ID of the bill to update
+            bill: dict containing the new metadata for the bill
+        Returns:
+            dict with status code and response from Nessie backend
+        """
         url = '%s/bills/%s?key=%s' % (self.account_base_url, bill_id, self.api_key)
         headers = {'content-type': 'application/json'}
-        params = {'key': self.api_key}
-        response = requests.put(url, params=params, data=json.dumps(bill), headers=headers)
-        return response.content
+        # params = {'key': self.api_key}
+        response = requests.put(url, params=None, data=json.dumps(bill), headers=headers)
+        return {
+            'code': response.status_code,
+            'message': response.json()['message']
+        }
 
     # POST
     # Bill format is identical to PUT

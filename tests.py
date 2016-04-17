@@ -65,9 +65,32 @@ class TestAtmClass(unittest.TestCase):
         self.assertEqual(response['code'], 200, msg='Received a {} status code'.format(response['code']))
         self.assertTrue(isinstance(response['atm'], dict), msg='Could not get ATM description')
 
+class TestBillClass(unittest.TestCase):
+    bill = bill.Bill()
+
+    def test_get_all_by_account_id(self):
+        response = self.bill.get_all_by_account_id(**context.bill['get_all_by_account_id'])
+        self.assertEqual(response['code'], 200, msg='Received a {} status code'.format(response['code']))
+        self.assertTrue(isinstance(response['bills'], list), msg='Did not get a list of accounts')
+
+    def test_get_all_by_customer_id(self):
+        response = self.bill.get_all_by_customer_id(**context.bill['get_all_by_customer_id'])
+        self.assertEqual(response['code'], 200, msg='Received a {} status code'.format(response['code']))
+        self.assertTrue(isinstance(response['bills'], list), msg='Did not get a list of accounts')
+
+    def test_get_one(self):
+        response = self.bill.get_one(**context.bill['get_one'])
+        self.assertEqual(response['code'], 200, msg='Received a {} status code'.format(response['code']))
+        self.assertTrue(isinstance(response['bill'], dict), msg='Did not get a list of accounts')
+
+    def test_update_bill(self):
+        response = self.bill.update_bill(**context.bill['update_bill'])
+        self.assertEqual(response['code'], 200, msg='Received a {} status code'.format(response['code']))
+        self.assertTrue(isinstance(response['message'], basestring), msg='Did not get a list of accounts')
 
 if __name__ == '__main__':
     fullTestSuite = unittest.TestLoader().loadTestsFromTestCase(TestAccountClass)
-    fullTestSuite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestAtmClass))
+    # fullTestSuite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestAtmClass))
+    fullTestSuite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestBillClass))
     unittest.TextTestRunner(verbosity=2).run(fullTestSuite)
 

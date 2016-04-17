@@ -38,22 +38,26 @@ atm = {
 
 bill = {
     'get_all_by_account_id': {
-        'acc_id': ''
+        'acc_id': '56c66be7a73e492741508102'
     },
     'get_all_by_customer_id': {
-        'cust_id': ''
+        'cust_id': '56c66be6a73e4927415074ca'
     },
     'get_one': {
-        'bill_id': ''
+        'bill_id': '56c66be8a73e492741508d48'
     },
     'update_bill': {
-        'bill_id': '',
+        'bill_id': '56c66be8a73e492741508d48',
         'bill': {
-            'nickname': 'updated payment'
+          'status': 'pending',
+          'payee': 'Updated Payee',
+          'nickname': 'Andrews Awesome Test Class',
+          'payment_date': '2016-04-17',
+          'recurring_date': 1
         }
     },
     'create_bill': {
-        'acc_id': '',
+        'acc_id': '56c66be7a73e492741508102',
         'bill': {
             'status': 'pending',
             'payee': 'Comcast',
