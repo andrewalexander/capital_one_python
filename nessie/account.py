@@ -1,5 +1,6 @@
 import json
 import requests
+import config
 
 
 class Account:
@@ -8,9 +9,9 @@ class Account:
 
     """
     def __init__(self):
-        self.base_url = 'http://api.reimaginebanking.com:80'
+        self.base_url = config.base_url
         self.url_with_entity = self.base_url + '/accounts'
-        self.api_key = '0d243c701f2b9721efb82640b83e13eb'  # test API key
+        self.api_key = config.api_key
 
     def get_all(self):
         """

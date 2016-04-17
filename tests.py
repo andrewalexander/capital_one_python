@@ -43,8 +43,10 @@ class TestAccountClass(unittest.TestCase):
         self.assertEqual(response['code'], 204, msg='Received a {} status code'.format(response['code']))
         self.assertEqual(response['message'], '', msg='Did not get an empty response (expected no response body)')
 
+    # TODO:
+    #   - make tests to handle the various exceptions (no API key, bad params, all the various failures the backend could throw, etc)
 
 if __name__ == '__main__':
-    accountTestSuite = unittest.TestLoader().loadTestsFromTestCase(TestAccountClass)
-    unittest.TextTestRunner(verbosity=2).run(accountTestSuite)
+    fullTestSuite = unittest.TestLoader().loadTestsFromTestCase(TestAccountClass)
+    unittest.TextTestRunner(verbosity=2).run(fullTestSuite)
 

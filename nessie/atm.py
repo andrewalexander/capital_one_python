@@ -1,11 +1,14 @@
 import json
 import requests
+import config
 
 
-class Atm():
-    base_url = 'http://api.reimaginebanking.com:80'
-    url_with_entity = base_url + '/atms'
-    api_key = 'ff1fbfb0f1bfaefb769e25299805ddf1'  # test API key
+class Atm:
+
+    def __init__(self):
+        self.base_url = config.base_url
+        self.url_with_entity = self.base_url + '/atms'
+        self.api_key = config.api_key  # test API key
 
     # GET
 
