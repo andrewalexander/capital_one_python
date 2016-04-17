@@ -27,12 +27,23 @@ class Account:
             'accounts': response.json()
         }
 
-    # looks like this endpoint was deprecated?
-    # def get_all_by_type(self, acc_type):
-    #     url = '%s?type=%s&key=%s' % (self.url_with_entity, acc_type, self.api_key)
-    #     response = requests.get(url)
-    #     data = json.loads(str(json.dumps(response.text)))
-    #     return data
+    def get_all_by_type(self, acc_type):
+        """
+        Filter the get_all by account type
+
+        Args
+            acc_type: 'string'
+                Valid options: 'Credit Card' | 'Checking' | 'Savings'
+        Returns:
+            dict with status code and list of all accounts of the requested type
+        """
+        url = '%s?type=%s&key=%s' % (self.url_with_entity, acc_type, self.api_key)
+        response = requests.get(url)
+
+        return {
+            'code': response.status_code,
+            'accounts': response.json()
+        }
 
     def get_one(self, acc_id):
         """
@@ -148,20 +159,3 @@ class Account:
             'code': response.status_code,
             'message': response.content
         }
-
-
-# a = Account()
-# acc_id = json.loads(a.get_all())[0]["_id"]
-# cust_id = '555bed95a520e036e52b23c1'
-# account_put = {'nickname': 'Brand New Update'}
-# account_post = {
-#     'type': 'Checking',
-#     'nickname': 'Brand New Test Account',
-#     'rewards': 0,
-#     'balance': 300
-# }
-# print a.get_all
-# print a.get_one(acc_id)
-# print a.get_all_by_customer_id(cust_id)
-# print a.update_account(acc_id, account_put)
-# print a.create_account(cust_id, account_post)		# 401 unauthorized

@@ -1,15 +1,20 @@
 import unittest
-import nessie
+from nessie import *
 from test_data import context
 
 
 class TestAccountClass(unittest.TestCase):
-    account = nessie.account.Account()
+    account = account.Account()
 
     def test_get_all(self):
         response = self.account.get_all()
         self.assertEqual(response['code'], 200, msg='Received a {} status code'.format(response['code']))
-        self.assertTrue(isinstance(response['accounts'], list), msg='Didn\'t receive a list of accounts')
+        self.assertTrue(isinstance(response['accounts'], list), msg='Did not get a list of accounts')
+
+    def test_get_all_by_type(self):
+        response = self.account.get_all_by_type('Credit Card')
+        self.assertEqual(response['code'], 200, msg='Received a {} status code'.format(response['code']))
+        self.assertTrue(isinstance(response['accounts'], list), msg='Did not get a list of accounts')
 
     def test_get_one(self):
         response = self.account.get_one(context.account['acc_id'])
@@ -37,9 +42,6 @@ class TestAccountClass(unittest.TestCase):
         response = self.account.delete_account(response['objectCreated']['_id'])
         self.assertEqual(response['code'], 204, msg='Received a {} status code'.format(response['code']))
         self.assertEqual(response['message'], '', msg='Did not get an empty response (expected no response body)')
-
-    # def test_delete_account(self):
-    #     print self.temp_account_id
 
 
 if __name__ == '__main__':
