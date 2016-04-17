@@ -87,7 +87,7 @@ class Customer():
 
         return {
             'code': response.status_code,
-            'message': response.json()['message'] or None
+            'message': response.json().get('message', None)
         }
 
     def create_customer(self, customer):
@@ -114,10 +114,10 @@ class Customer():
         """
         url = '%s?key=%s' % (self.url_with_entity, self.api_key)
         headers = {'content-type': 'application/json'}
-        # params = {'key': self.api_key}
         response = requests.post(url, params=None, data=json.dumps(customer), headers=headers)
+
         return {
             'code': response.status_code,
-            'message': response.json()['message'] or None,
-            'objectCreated': response.json()['objectCreated'] or None
+            'message': response.json().get('message', None),
+            'objectCreated': response.json().get('objectCreated', None)
         }

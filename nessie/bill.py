@@ -87,7 +87,7 @@ class Bill():
 
         return {
             'code': response.status_code,
-            'message': response.json()['message'] or None
+            'message': response.json().get('message', None)
         }
 
     def create_bill(self, acc_id, bill):
@@ -117,8 +117,8 @@ class Bill():
 
         return {
             'code': response.status_code,
-            'message': response.json()['message'] or None,
-            'objectCreated': response.json()['objectCreated'] or None
+            'message': response.json().get('message', None),
+            'objectCreated': response.json().get('objectCreated', None)
         }
 
     def delete_bill(self, bill_id):

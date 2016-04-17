@@ -101,7 +101,7 @@ class Account:
 
         return {
             'code': response.status_code,
-            'message': response.json()['message']
+            'message': response.json().get('message', None)
         }
 
     def create_account(self, cust_id, request_data):
@@ -136,12 +136,12 @@ class Account:
         """
         url = '%s/customers/%s/accounts?key=%s' % (self.base_url, cust_id, self.api_key)
         headers = {'content-type': 'application/json'}
-        response = requests.post(url, params=None, data=json.dumps(request_data), headers=headers).json()
+        response = requests.post(url, params=None, data=json.dumps(request_data), headers=headers)
 
         return {
-            'code': response['code'],
-            'message': response['message'],
-            'objectCreated': response['objectCreated']
+            'code': response.status_code,
+            'message': response.json().get('message', None),
+            'objectCreated': response.json().get('objectCreated', None)
         }
 
     def delete_account(self, acc_id):
@@ -158,5 +158,5 @@ class Account:
 
         return {
             'code': response.status_code,
-            'message': response.content
+            'message': response.json().get('message', None)
         }
