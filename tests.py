@@ -148,8 +148,9 @@ class TestCustomerClass(unittest.TestCase):
 
 if __name__ == '__main__':
     fullTestSuite = unittest.TestLoader().loadTestsFromTestCase(TestAccountClass)
-    fullTestSuite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestAtmClass))
-    fullTestSuite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestBillClass))
-    fullTestSuite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestCustomerClass))
+    # fullTestSuite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestAtmClass))
+    # fullTestSuite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestBillClass))
+    # fullTestSuite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestCustomerClass))
+    fullTestSuite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestBranchClass))
     unittest.TextTestRunner(verbosity=2).run(fullTestSuite)
 
