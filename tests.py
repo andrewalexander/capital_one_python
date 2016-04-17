@@ -1,10 +1,10 @@
 import unittest
-from nessie import account
+import nessie
 from test_data import context
 
 
 class TestAccountClass(unittest.TestCase):
-    account = account.Account()
+    account = nessie.account.Account()
 
     def test_get_all(self):
         response = self.account.get_all()
