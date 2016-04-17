@@ -1,14 +1,37 @@
 account = {
-    'acc_id': '56c66be7a73e492741508102',
-    'cust_id': '56c66be6a73e4927415074ca',
-    'post_data': {
-        'type': 'Credit Card',
-        'nickname': 'Brand New Test Account',
-        'rewards': 0,
-        'balance': 0
+    'get_all_by_type': {
+        'acc_type': 'Credit Card'
     },
-    'put_data': {
-        'nickname': 'Brand New Test Update'
+    'get_one': {
+        'acc_id': '56c66be7a73e492741508102'
+    },
+    'get_all_by_customer_id': {
+        'cust_id': '56c66be6a73e4927415074ca'
+    },
+    'update_account': {
+        'acc_id': '56c66be7a73e492741508102',
+        'request_data': {
+            'nickname': 'Brand New Test Update'
+        }
+    },
+    'create_account': {
+        'cust_id': '56c66be6a73e4927415074ca',
+        'request_data': {
+            'type': 'Credit Card',
+            'nickname': 'Brand New Test Account',
+            'rewards': 0,
+            'balance': 0
+        }
     }
 }
 
+atm = {
+    'get_all_by_location': {
+        'lat': 38.882163,
+        'lng': -77.1113105,
+        'rad': 1
+    },
+    'get_one': {
+        'id': '56c66be5a73e492741506f30'
+    }
+}

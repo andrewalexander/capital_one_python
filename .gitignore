@@ -89,3 +89,6 @@ ENV/
 
 # JetBrains IDE settings
 .idea/
+
+# config.py (we don't want to accidentally commit our API keys :D)
+config.py
