@@ -1,0 +1,1086 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nessie package &mdash; Nessie Python 0.1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Nessie Python 0.1.0 documentation" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Nessie Python
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../account.html">             account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../atm.html">             atm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bill.html">             bill</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../branch.html">             branch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customer.html">             customer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deposit.html">             deposit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../merchant.html">             merchant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../purchase.html">             purchase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transfer.html">             transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../withdrawal.html">             withdrawal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">             modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nessie.html">             nessie</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Nessie Python</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>nessie package</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/docs/nessie.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nessie-package">
+<h1>nessie package<a class="headerlink" href="#nessie-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-nessie.account">
+<span id="nessie-account-module"></span><h2>nessie.account module<a class="headerlink" href="#module-nessie.account" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="nessie.account.Account">
+<em class="property">class </em><code class="descclassname">nessie.account.</code><code class="descname">Account</code><a class="headerlink" href="#nessie.account.Account" title="Permalink to this definition">¶</a></dt>
+<dd><p>Account class - get/update account information</p>
+<dl class="method">
+<dt id="nessie.account.Account.create_account">
+<code class="descname">create_account</code><span class="sig-paren">(</span><em>cust_id</em>, <em>request_data</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.account.Account.create_account" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new account for cust_id using the details in request_data</p>
+<p>Format for POST request:
+{</p>
+<blockquote>
+<div>&#8216;type&#8217;: &#8216;Checking&#8217; | &#8216;Credit Card&#8217;,
+&#8216;nickname&#8217;: &#8216;string&#8217;,
+&#8216;rewards&#8217;: int,
+&#8216;balance&#8217;: float</div></blockquote>
+<p>}</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>cust_id</strong> &#8211; The owner of the new account we are creating</li>
+<li><strong>request_data</strong> &#8211; The dict containing the details of the new account following the format above</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p><strong>dict with status code</strong> &#8211;</p>
+<dl class="docutils">
+<dt>{</dt>
+<dd><p class="first">&#8220;code&#8221;: 201,
+&#8220;message&#8221;: &#8220;Account created&#8221;,
+&#8220;objectCreated&#8221;: {</p>
+<blockquote>
+<div><p>&#8220;type&#8221;: &#8220;Credit Card&#8221;,
+&#8220;nickname&#8221;: &#8220;Brand New test Account&#8221;,
+&#8220;rewards&#8221;: 0,
+&#8220;balance&#8221;: 0,
+&#8220;customer_id&#8221;: &#8220;string&#8221;,
+&#8220;_id&#8221;: &#8220;string&#8221;</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+</dl>
+<p>}</p>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">201</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.account.Account.delete_account">
+<code class="descname">delete_account</code><span class="sig-paren">(</span><em>acc_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.account.Account.delete_account" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete the account specified by acc_id</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>acc_id</strong> &#8211; The account ID to delete</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dict with status code (204) and empty response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.account.Account.get_all">
+<code class="descname">get_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nessie.account.Account.get_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all accounts</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">dict with status code (200) and list of all accounts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.account.Account.get_all_by_customer_id">
+<code class="descname">get_all_by_customer_id</code><span class="sig-paren">(</span><em>cust_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.account.Account.get_all_by_customer_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all accounts for a customer</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cust_id</strong> &#8211; string for customer ID</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dict with status code (200) and list of accounts for cust_id</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.account.Account.get_all_by_type">
+<code class="descname">get_all_by_type</code><span class="sig-paren">(</span><em>acc_type</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.account.Account.get_all_by_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filter the get_all by account type</p>
+<dl class="docutils">
+<dt>Args</dt>
+<dd><dl class="first last docutils">
+<dt>acc_type: &#8216;string&#8217;</dt>
+<dd>Valid options: &#8216;Credit Card&#8217; | &#8216;Checking&#8217; | &#8216;Savings&#8217;</dd>
+</dl>
+</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">dict with status code (200) and list of all accounts of the requested type</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.account.Account.get_one">
+<code class="descname">get_one</code><span class="sig-paren">(</span><em>acc_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.account.Account.get_one" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get one account by acc_id</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>acc_id</strong> &#8211; account ID to fetch</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dict with status code (200) and the account information for acc_id</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.account.Account.update_account">
+<code class="descname">update_account</code><span class="sig-paren">(</span><em>acc_id</em>, <em>request_data</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.account.Account.update_account" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates account information for specified acc_id</p>
+<p>Format for PUT request:
+{</p>
+<blockquote>
+<div>&#8216;nickname&#8217;: &#8216;some string here&#8217;</div></blockquote>
+<p>}</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>acc_id</strong> &#8211; account ID for account to update</li>
+<li><strong>request_data</strong> &#8211; dict of PUT data following the format above</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">dict with status code (202) and response message from Nessie backend</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nessie.atm">
+<span id="nessie-atm-module"></span><h2>nessie.atm module<a class="headerlink" href="#module-nessie.atm" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="nessie.atm.Atm">
+<em class="property">class </em><code class="descclassname">nessie.atm.</code><code class="descname">Atm</code><a class="headerlink" href="#nessie.atm.Atm" title="Permalink to this definition">¶</a></dt>
+<dd><p>ATM class - get ATM locations</p>
+<dl class="method">
+<dt id="nessie.atm.Atm.get_all">
+<code class="descname">get_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nessie.atm.Atm.get_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all ATM information</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This endpoint deals with many paged results and can result
+in 60+ individual API calls to Nessie.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">dict with status code (200) and list of ATMs</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.atm.Atm.get_all_by_location">
+<code class="descname">get_all_by_location</code><span class="sig-paren">(</span><em>lat</em>, <em>lng</em>, <em>rad</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.atm.Atm.get_all_by_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all ATMs within a certain radius for a given latitude/longitude</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>lat</strong> &#8211; Latitude of location</li>
+<li><strong>lng</strong> &#8211; Longitude of location</li>
+<li><strong>rad</strong> &#8211; Radius (in miles) around (lat, lng) to fetch results for</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">dict with status code (200) and list of ATMs around given location</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.atm.Atm.get_one">
+<code class="descname">get_one</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.atm.Atm.get_one" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single ATM description</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> &#8211; ATM ID to get description for</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dict with status code (200) and single ATM description</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.atm.Atm.paginate_results">
+<code class="descname">paginate_results</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.atm.Atm.paginate_results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper function for dealing with pages of results</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>response</strong> &#8211; the response body from a request that is paginated</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">concatenated list of all pages&#8217; data</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nessie.bill">
+<span id="nessie-bill-module"></span><h2>nessie.bill module<a class="headerlink" href="#module-nessie.bill" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="nessie.bill.Bill">
+<em class="property">class </em><code class="descclassname">nessie.bill.</code><code class="descname">Bill</code><a class="headerlink" href="#nessie.bill.Bill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bill class - get/create/update bills for customer or account</p>
+<dl class="method">
+<dt id="nessie.bill.Bill.create_bill">
+<code class="descname">create_bill</code><span class="sig-paren">(</span><em>acc_id</em>, <em>bill</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.bill.Bill.create_bill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new bill inside a given account</p>
+<p>Format for POST Request:
+{</p>
+<blockquote>
+<div>&#8216;status&#8217;: &#8216;pending&#8217; | &#8216;cancelled&#8217; | &#8216;completed&#8217; | &#8216;recurring&#8217; ,
+&#8216;payee&#8217;: &#8216;string&#8217;,
+&#8216;nickname&#8217;: &#8216;string&#8217;,
+&#8216;payment_date&#8217;: &#8216;YYYY-MM-DD&#8217;,
+&#8216;recurring_date&#8217;: int [1-31],
+&#8216;payment_amount: int</div></blockquote>
+<p>}</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>acc_id</strong> &#8211; ID of the account where bill will be added</li>
+<li><strong>bill</strong> &#8211; dict containing the new metadata for the bill</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">dict with status code (201) and response object from Nessie backend</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.bill.Bill.delete_bill">
+<code class="descname">delete_bill</code><span class="sig-paren">(</span><em>bill_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.bill.Bill.delete_bill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete bill for given bill ID</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>bill_id</strong> &#8211; ID of the bill to delete</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dict with status code (204)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.bill.Bill.get_all_by_account_id">
+<code class="descname">get_all_by_account_id</code><span class="sig-paren">(</span><em>acc_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.bill.Bill.get_all_by_account_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all bills associated with the given account ID</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>acc_id</strong> &#8211; Account ID to fetch all bills for</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dict with status code and list of bills</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.bill.Bill.get_all_by_customer_id">
+<code class="descname">get_all_by_customer_id</code><span class="sig-paren">(</span><em>cust_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.bill.Bill.get_all_by_customer_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all bills associated with the given customer ID</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cust_id</strong> &#8211; ID of the customer to fetch the bills for</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dict of status code and list of bills</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.bill.Bill.get_one">
+<code class="descname">get_one</code><span class="sig-paren">(</span><em>bill_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.bill.Bill.get_one" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single bill description from given bill ID</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>bill_id</strong> &#8211; ID of bill to fetch</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dict of status code and single bill</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.bill.Bill.update_bill">
+<code class="descname">update_bill</code><span class="sig-paren">(</span><em>bill_id</em>, <em>bill</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.bill.Bill.update_bill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update metadata associated with a bill</p>
+<p>Format for PUT Request:
+{</p>
+<blockquote>
+<div>&#8216;status&#8217;: &#8216;pending&#8217; | &#8216;cancelled&#8217; | &#8216;completed&#8217; | &#8216;recurring&#8217; ,
+&#8216;payee&#8217;: &#8216;string&#8217;,
+&#8216;nickname&#8217;: &#8216;string&#8217;,
+&#8216;payment_date&#8217;: &#8216;YYYY-MM-DD&#8217;,
+&#8216;recurring_date&#8217;: int [1-31],
+&#8216;payment_amount&#8217;: int</div></blockquote>
+<p>}</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>bill_id</strong> &#8211; ID of the bill to update</li>
+<li><strong>bill</strong> &#8211; dict containing the new metadata for the bill</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">dict with status code (202) and response from Nessie backend</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nessie.branch">
+<span id="nessie-branch-module"></span><h2>nessie.branch module<a class="headerlink" href="#module-nessie.branch" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="nessie.branch.Branch">
+<em class="property">class </em><code class="descclassname">nessie.branch.</code><code class="descname">Branch</code><a class="headerlink" href="#nessie.branch.Branch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Branch class - get branch information</p>
+<dl class="method">
+<dt id="nessie.branch.Branch.get_all">
+<code class="descname">get_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nessie.branch.Branch.get_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all branches</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">dict of status code (200) and list of branches</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.branch.Branch.get_one">
+<code class="descname">get_one</code><span class="sig-paren">(</span><em>branch_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.branch.Branch.get_one" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get one branch</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>branch_id</strong> &#8211; ID of the branch to get description for</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dict of status code (200) and branch description</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nessie.config">
+<span id="nessie-config-module"></span><h2>nessie.config module<a class="headerlink" href="#module-nessie.config" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-nessie.customer">
+<span id="nessie-customer-module"></span><h2>nessie.customer module<a class="headerlink" href="#module-nessie.customer" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="nessie.customer.Customer">
+<em class="property">class </em><code class="descclassname">nessie.customer.</code><code class="descname">Customer</code><a class="headerlink" href="#nessie.customer.Customer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Customer class - get/update customer information</p>
+<dl class="method">
+<dt id="nessie.customer.Customer.create_customer">
+<code class="descname">create_customer</code><span class="sig-paren">(</span><em>customer</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.customer.Customer.create_customer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new customer</p>
+<p>Format for POST request:
+&#8216;customer&#8217;: {</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>&#8216;address&#8217;: {</dt>
+<dd>&#8216;street_number&#8217;: &#8216;1&#8217;,
+&#8216;street_name&#8217;: &#8216;Infinite Circle&#8217;,
+&#8216;city&#8217;: &#8216;Nontain View&#8217;,
+&#8216;state&#8217;: &#8216;CA&#8217;,
+&#8216;zip&#8217;: &#8216;12345&#8217;</dd>
+</dl>
+<p>},
+&#8216;first_name&#8217;: &#8216;Test&#8217;,
+&#8216;last_name&#8217;: &#8216;Customer&#8217;</p>
+</div></blockquote>
+<p>}</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>customer</strong> &#8211; dict of new customer metadata</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dict of status code and response object from create</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.customer.Customer.get_all">
+<code class="descname">get_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nessie.customer.Customer.get_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get descriptions for all customers</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">dict of status code and list of customers</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.customer.Customer.get_one">
+<code class="descname">get_one</code><span class="sig-paren">(</span><em>cust_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.customer.Customer.get_one" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single customer description</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cust_id</strong> &#8211; ID of the customer to fetch</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dict of status code and the customer description</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.customer.Customer.get_one_by_account_id">
+<code class="descname">get_one_by_account_id</code><span class="sig-paren">(</span><em>acc_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.customer.Customer.get_one_by_account_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the customer description from account ID</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>acc_id</strong> &#8211; account ID to fetch customer info from</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dict of status code and the customer description</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.customer.Customer.update_customer">
+<code class="descname">update_customer</code><span class="sig-paren">(</span><em>cust_id</em>, <em>customer</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.customer.Customer.update_customer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update customer information</p>
+<dl class="docutils">
+<dt>Format of PUT request:</dt>
+<dd><dl class="first last docutils">
+<dt>&#8216;customer&#8217;: {</dt>
+<dd><dl class="first docutils">
+<dt>&#8216;address&#8217;: {</dt>
+<dd>&#8216;street_number&#8217;: &#8216;42&#8217;,
+&#8216;street_name&#8217;: &#8216;Life Universe Everything Way&#8217;,
+&#8216;city&#8217;: &#8216;Undefined&#8217;,
+&#8216;state&#8217;: &#8216;CO&#8217;,
+&#8216;zip&#8217;: &#8216;42424&#8217;</dd>
+</dl>
+<p class="last">}</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>}</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>cust_id</strong> &#8211; ID of the customer to update</li>
+<li><strong>customer</strong> &#8211; dict of updated customer metadata</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">dict of status code (202) and message from Nessie backend</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nessie.deposit">
+<span id="nessie-deposit-module"></span><h2>nessie.deposit module<a class="headerlink" href="#module-nessie.deposit" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="nessie.deposit.Deposit">
+<em class="property">class </em><code class="descclassname">nessie.deposit.</code><code class="descname">Deposit</code><a class="headerlink" href="#nessie.deposit.Deposit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deposit class - get/create/update deposits</p>
+<dl class="method">
+<dt id="nessie.deposit.Deposit.create_deposit">
+<code class="descname">create_deposit</code><span class="sig-paren">(</span><em>acc_id</em>, <em>deposit</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.deposit.Deposit.create_deposit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new deposit to an acc_id</p>
+<p>Format of POST request:
+&#8216;deposit&#8217;: {</p>
+<blockquote>
+<div>&#8216;medium&#8217;: &#8216;balance&#8217; | &#8216;rewards&#8217;,
+&#8216;transaction_date&#8217;: &#8216;YYYY-MM-DD&#8217;,
+&#8216;status&#8217;: &#8216;pending&#8217; | &#8216;cancelled&#8217; | &#8216;recurring&#8217;,
+&#8216;amount&#8217;: int,
+&#8216;description&#8217;: &#8216;string&#8217;</div></blockquote>
+<p>}</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>acc_id</strong> &#8211; ID of the account to dump the new deposit into</li>
+<li><strong>deposit</strong> &#8211; dict containing the new deposit metadata</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">dict of status code (201) and response object from Nessie</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.deposit.Deposit.delete_deposit">
+<code class="descname">delete_deposit</code><span class="sig-paren">(</span><em>deposit_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.deposit.Deposit.delete_deposit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a deposit</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>deposit_id</strong> &#8211; ID of the deposit to delete</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dict of status code (204)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.deposit.Deposit.get_all_by_account_id">
+<code class="descname">get_all_by_account_id</code><span class="sig-paren">(</span><em>acc_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.deposit.Deposit.get_all_by_account_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all deposits for given account ID</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>acc_id</strong> &#8211; ID of account to fetch deposits for</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dict of status code (200) and list of deposits</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.deposit.Deposit.get_one">
+<code class="descname">get_one</code><span class="sig-paren">(</span><em>deposit_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.deposit.Deposit.get_one" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get deposit description for given deposit ID</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>deposit_id</strong> &#8211; ID of the deposit to fetch</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dict of status code (200) and deposit description</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.deposit.Deposit.update_deposit">
+<code class="descname">update_deposit</code><span class="sig-paren">(</span><em>deposit_id</em>, <em>deposit</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.deposit.Deposit.update_deposit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update metadata associated with a deposit</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This will return a 404 if the deposit status is &#8216;executed&#8217;
+or &#8216;cancelled&#8217;, so it should only be called immediately after
+a &#8216;create&#8217;.</p>
+</div>
+<p>Format of PUT request:
+&#8216;deposit&#8217;: {</p>
+<blockquote>
+<div>&#8216;medium&#8217;: &#8216;balance&#8217; | &#8216;rewards&#8217;,
+&#8216;amount&#8217;: int,
+&#8216;description&#8217;: &#8216;string&#8217;
+}</div></blockquote>
+<p>}</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>deposit_id</strong> &#8211; ID of the deposit to update</li>
+<li><strong>deposit</strong> &#8211; dict containing the updated deposit metadata</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">dict of status code (202) and response message from Nessie</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nessie.merchant">
+<span id="nessie-merchant-module"></span><h2>nessie.merchant module<a class="headerlink" href="#module-nessie.merchant" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="nessie.merchant.Merchant">
+<em class="property">class </em><code class="descclassname">nessie.merchant.</code><code class="descname">Merchant</code><a class="headerlink" href="#nessie.merchant.Merchant" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="nessie.merchant.Merchant.api_key">
+<code class="descname">api_key</code><em class="property"> = 'ff1fbfb0f1bfaefb769e25299805ddf1'</em><a class="headerlink" href="#nessie.merchant.Merchant.api_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nessie.merchant.Merchant.base_url">
+<code class="descname">base_url</code><em class="property"> = 'http://api.reimaginebanking.com:80'</em><a class="headerlink" href="#nessie.merchant.Merchant.base_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nessie.merchant.Merchant.create_merchant">
+<code class="descname">create_merchant</code><span class="sig-paren">(</span><em>merchant</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.merchant.Merchant.create_merchant" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nessie.merchant.Merchant.get_all">
+<code class="descname">get_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nessie.merchant.Merchant.get_all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nessie.merchant.Merchant.get_all_by_location">
+<code class="descname">get_all_by_location</code><span class="sig-paren">(</span><em>lat</em>, <em>lng</em>, <em>rad</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.merchant.Merchant.get_all_by_location" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nessie.merchant.Merchant.get_one">
+<code class="descname">get_one</code><span class="sig-paren">(</span><em>march_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.merchant.Merchant.get_one" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nessie.merchant.Merchant.update_merchant">
+<code class="descname">update_merchant</code><span class="sig-paren">(</span><em>march_id</em>, <em>merchant</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.merchant.Merchant.update_merchant" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nessie.merchant.Merchant.url_with_entity">
+<code class="descname">url_with_entity</code><em class="property"> = 'http://api.reimaginebanking.com:80/merchants'</em><a class="headerlink" href="#nessie.merchant.Merchant.url_with_entity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nessie.purchase">
+<span id="nessie-purchase-module"></span><h2>nessie.purchase module<a class="headerlink" href="#module-nessie.purchase" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="nessie.purchase.Purchase">
+<em class="property">class </em><code class="descclassname">nessie.purchase.</code><code class="descname">Purchase</code><a class="headerlink" href="#nessie.purchase.Purchase" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="nessie.purchase.Purchase.api_key">
+<code class="descname">api_key</code><em class="property"> = 'ff1fbfb0f1bfaefb769e25299805ddf1'</em><a class="headerlink" href="#nessie.purchase.Purchase.api_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nessie.purchase.Purchase.base_url">
+<code class="descname">base_url</code><em class="property"> = 'http://api.reimaginebanking.com:80'</em><a class="headerlink" href="#nessie.purchase.Purchase.base_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nessie.purchase.Purchase.create_purchase">
+<code class="descname">create_purchase</code><span class="sig-paren">(</span><em>acc_id</em>, <em>purchase</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.purchase.Purchase.create_purchase" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nessie.purchase.Purchase.delete_purchase">
+<code class="descname">delete_purchase</code><span class="sig-paren">(</span><em>purch_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.purchase.Purchase.delete_purchase" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nessie.purchase.Purchase.get_all_by_account_id">
+<code class="descname">get_all_by_account_id</code><span class="sig-paren">(</span><em>acc_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.purchase.Purchase.get_all_by_account_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nessie.purchase.Purchase.get_one">
+<code class="descname">get_one</code><span class="sig-paren">(</span><em>purch_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.purchase.Purchase.get_one" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nessie.purchase.Purchase.update_purchase">
+<code class="descname">update_purchase</code><span class="sig-paren">(</span><em>purch_id</em>, <em>purchase</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.purchase.Purchase.update_purchase" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nessie.purchase.Purchase.url_with_entity">
+<code class="descname">url_with_entity</code><em class="property"> = 'http://api.reimaginebanking.com:80/purchases'</em><a class="headerlink" href="#nessie.purchase.Purchase.url_with_entity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nessie.transfer">
+<span id="nessie-transfer-module"></span><h2>nessie.transfer module<a class="headerlink" href="#module-nessie.transfer" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="nessie.transfer.Transfer">
+<em class="property">class </em><code class="descclassname">nessie.transfer.</code><code class="descname">Transfer</code><a class="headerlink" href="#nessie.transfer.Transfer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="nessie.transfer.Transfer.acc_base_url">
+<code class="descname">acc_base_url</code><em class="property"> = 'http://api.reimaginebanking.com:80/accounts'</em><a class="headerlink" href="#nessie.transfer.Transfer.acc_base_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nessie.transfer.Transfer.api_key">
+<code class="descname">api_key</code><em class="property"> = 'ff1fbfb0f1bfaefb769e25299805ddf1'</em><a class="headerlink" href="#nessie.transfer.Transfer.api_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nessie.transfer.Transfer.base_url">
+<code class="descname">base_url</code><em class="property"> = 'http://api.reimaginebanking.com:80'</em><a class="headerlink" href="#nessie.transfer.Transfer.base_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nessie.transfer.Transfer.create_transfer">
+<code class="descname">create_transfer</code><span class="sig-paren">(</span><em>acc_id</em>, <em>transfer</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.transfer.Transfer.create_transfer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nessie.transfer.Transfer.delete_transfer">
+<code class="descname">delete_transfer</code><span class="sig-paren">(</span><em>trans_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.transfer.Transfer.delete_transfer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nessie.transfer.Transfer.get_all_by_account_id">
+<code class="descname">get_all_by_account_id</code><span class="sig-paren">(</span><em>acc_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.transfer.Transfer.get_all_by_account_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nessie.transfer.Transfer.get_all_by_type">
+<code class="descname">get_all_by_type</code><span class="sig-paren">(</span><em>acc_id</em>, <em>transType</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.transfer.Transfer.get_all_by_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nessie.transfer.Transfer.get_one">
+<code class="descname">get_one</code><span class="sig-paren">(</span><em>trans_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.transfer.Transfer.get_one" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nessie.transfer.Transfer.trans_base_url">
+<code class="descname">trans_base_url</code><em class="property"> = 'http://api.reimaginebanking.com:80/transfers'</em><a class="headerlink" href="#nessie.transfer.Transfer.trans_base_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nessie.transfer.Transfer.update_transfer">
+<code class="descname">update_transfer</code><span class="sig-paren">(</span><em>trans_id</em>, <em>transfer</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.transfer.Transfer.update_transfer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nessie.withdrawal">
+<span id="nessie-withdrawal-module"></span><h2>nessie.withdrawal module<a class="headerlink" href="#module-nessie.withdrawal" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="nessie.withdrawal.Withdrawal">
+<em class="property">class </em><code class="descclassname">nessie.withdrawal.</code><code class="descname">Withdrawal</code><a class="headerlink" href="#nessie.withdrawal.Withdrawal" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="nessie.withdrawal.Withdrawal.api_key">
+<code class="descname">api_key</code><em class="property"> = 'ff1fbfb0f1bfaefb769e25299805ddf1'</em><a class="headerlink" href="#nessie.withdrawal.Withdrawal.api_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nessie.withdrawal.Withdrawal.base_url">
+<code class="descname">base_url</code><em class="property"> = 'http://api.reimaginebanking.com:80'</em><a class="headerlink" href="#nessie.withdrawal.Withdrawal.base_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nessie.withdrawal.Withdrawal.create_withdrawal">
+<code class="descname">create_withdrawal</code><span class="sig-paren">(</span><em>to_acc</em>, <em>withdrawal</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.withdrawal.Withdrawal.create_withdrawal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nessie.withdrawal.Withdrawal.delete_withdrawal">
+<code class="descname">delete_withdrawal</code><span class="sig-paren">(</span><em>withdrawal_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.withdrawal.Withdrawal.delete_withdrawal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nessie.withdrawal.Withdrawal.get_all_by_account">
+<code class="descname">get_all_by_account</code><span class="sig-paren">(</span><em>acc_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.withdrawal.Withdrawal.get_all_by_account" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nessie.withdrawal.Withdrawal.get_one">
+<code class="descname">get_one</code><span class="sig-paren">(</span><em>withdrawal_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.withdrawal.Withdrawal.get_one" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nessie.withdrawal.Withdrawal.update_withdrawal">
+<code class="descname">update_withdrawal</code><span class="sig-paren">(</span><em>withdrawal_id</em>, <em>withdrawal</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.withdrawal.Withdrawal.update_withdrawal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nessie.withdrawal.Withdrawal.url_with_entity">
+<code class="descname">url_with_entity</code><em class="property"> = 'http://api.reimaginebanking.com:80/accounts'</em><a class="headerlink" href="#nessie.withdrawal.Withdrawal.url_with_entity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nessie">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-nessie" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Andrew Alexander, Shane Besong.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
