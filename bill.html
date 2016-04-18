@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Bill &mdash; C1 Nessie Python SDK 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="C1 Nessie Python SDK 0.1.0 documentation" href="index.html" />
+    <link rel="next" title="Branch" href="branch.html" />
+    <link rel="prev" title="ATM" href="atm.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="branch.html" title="Branch"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="atm.html" title="ATM"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">C1 Nessie Python SDK 0.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-nessie.bill">
+<span id="bill"></span><h1>Bill<a class="headerlink" href="#module-nessie.bill" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nessie.bill.Bill">
+<em class="property">class </em><code class="descclassname">nessie.bill.</code><code class="descname">Bill</code><a class="headerlink" href="#nessie.bill.Bill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bill class - get/create/update bills for customer or account</p>
+<dl class="method">
+<dt id="nessie.bill.Bill.create_bill">
+<code class="descname">create_bill</code><span class="sig-paren">(</span><em>acc_id</em>, <em>bill</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.bill.Bill.create_bill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new bill inside a given account</p>
+<p>Format for POST Request:
+{</p>
+<blockquote>
+<div>&#8216;status&#8217;: &#8216;pending&#8217; | &#8216;cancelled&#8217; | &#8216;completed&#8217; | &#8216;recurring&#8217; ,
+&#8216;payee&#8217;: &#8216;string&#8217;,
+&#8216;nickname&#8217;: &#8216;string&#8217;,
+&#8216;payment_date&#8217;: &#8216;YYYY-MM-DD&#8217;,
+&#8216;recurring_date&#8217;: int [1-31],
+&#8216;payment_amount: int</div></blockquote>
+<p>}</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>acc_id: ID of the account where bill will be added
+bill: dict containing the new metadata for the bill</dd>
+<dt>Returns:</dt>
+<dd>dict with status code (201) and response object from Nessie backend</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.bill.Bill.delete_bill">
+<code class="descname">delete_bill</code><span class="sig-paren">(</span><em>bill_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.bill.Bill.delete_bill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete bill for given bill ID</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>bill_id: ID of the bill to delete</dd>
+<dt>Returns:</dt>
+<dd>dict with status code (204)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.bill.Bill.get_all_by_account_id">
+<code class="descname">get_all_by_account_id</code><span class="sig-paren">(</span><em>acc_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.bill.Bill.get_all_by_account_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all bills associated with the given account ID</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>acc_id: Account ID to fetch all bills for</dd>
+<dt>Returns:</dt>
+<dd>dict with status code and list of bills</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.bill.Bill.get_all_by_customer_id">
+<code class="descname">get_all_by_customer_id</code><span class="sig-paren">(</span><em>cust_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.bill.Bill.get_all_by_customer_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all bills associated with the given customer ID</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>cust_id: ID of the customer to fetch the bills for</dd>
+<dt>Returns:</dt>
+<dd>dict of status code and list of bills</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.bill.Bill.get_one">
+<code class="descname">get_one</code><span class="sig-paren">(</span><em>bill_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.bill.Bill.get_one" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single bill description from given bill ID</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>bill_id: ID of bill to fetch</dd>
+<dt>Returns:</dt>
+<dd>dict of status code and single bill</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.bill.Bill.update_bill">
+<code class="descname">update_bill</code><span class="sig-paren">(</span><em>bill_id</em>, <em>bill</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.bill.Bill.update_bill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update metadata associated with a bill</p>
+<p>Format for PUT Request:
+{</p>
+<blockquote>
+<div>&#8216;status&#8217;: &#8216;pending&#8217; | &#8216;cancelled&#8217; | &#8216;completed&#8217; | &#8216;recurring&#8217; ,
+&#8216;payee&#8217;: &#8216;string&#8217;,
+&#8216;nickname&#8217;: &#8216;string&#8217;,
+&#8216;payment_date&#8217;: &#8216;YYYY-MM-DD&#8217;,
+&#8216;recurring_date&#8217;: int [1-31],
+&#8216;payment_amount&#8217;: int</div></blockquote>
+<p>}</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>bill_id: ID of the bill to update
+bill: dict containing the new metadata for the bill</dd>
+<dt>Returns:</dt>
+<dd>dict with status code (202) and response from Nessie backend</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="atm.html"
+                        title="previous chapter">ATM</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="branch.html"
+                        title="next chapter">Branch</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/bill.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="branch.html" title="Branch"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="atm.html" title="ATM"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">C1 Nessie Python SDK 0.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Andrew Alexander, Shane Besong.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1.
+    </div>
+  </body>
+</html>
