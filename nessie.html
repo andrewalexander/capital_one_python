@@ -147,7 +147,9 @@
 <dl class="class">
 <dt id="nessie.account.Account">
 <em class="property">class </em><code class="descclassname">nessie.account.</code><code class="descname">Account</code><a class="headerlink" href="#nessie.account.Account" title="Permalink to this definition">¶</a></dt>
-<dd><p>Account class - get/update account information</p>
+<dd><p>Account class - get/update account information.</p>
+<p>Some of these functions require a customer ID that can be retrieved from the
+:ref: nessie.customer.Customer class.</p>
 <dl class="method">
 <dt id="nessie.account.Account.create_account">
 <code class="descname">create_account</code><span class="sig-paren">(</span><em>cust_id</em>, <em>request_data</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.account.Account.create_account" title="Permalink to this definition">¶</a></dt>
@@ -157,10 +159,32 @@
     <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;Checking&#39;</span> <span class="o">|</span> <span class="s1">&#39;Credit Card&#39;</span><span class="p">,</span>
     <span class="s1">&#39;nickname&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
     <span class="s1">&#39;rewards&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-    <span class="s1">&#39;balance&#39;</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="s1">&#39;balance&#39;</span><span class="p">:</span> <span class="nb">int</span>
 <span class="p">}</span>
 </pre></div>
 </div>
+<dl class="docutils">
+<dt>Response Object::</dt>
+<dd><dl class="first last docutils">
+<dt>{</dt>
+<dd><blockquote class="first">
+<div><p>&#8220;code&#8221;: 201,
+&#8220;message&#8221;: &#8220;Account created&#8221;,
+&#8220;objectCreated&#8221;: {</p>
+<blockquote>
+<div>&#8220;type&#8221;: &#8220;Credit Card&#8221;,
+&#8220;nickname&#8221;: &#8220;Brand New test Account&#8221;,
+&#8220;rewards&#8221;: 0,
+&#8220;balance&#8221;: 0,
+&#8220;customer_id&#8221;: &#8220;string&#8221;,
+&#8220;_id&#8221;: &#8220;string&#8221;</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+</dl>
+</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -266,11 +290,12 @@
 <dt id="nessie.account.Account.update_account">
 <code class="descname">update_account</code><span class="sig-paren">(</span><em>acc_id</em>, <em>request_data</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.account.Account.update_account" title="Permalink to this definition">¶</a></dt>
 <dd><p>Updates account information for specified acc_id</p>
-<p>Format for PUT request:
-{</p>
-<blockquote>
-<div>&#8216;nickname&#8217;: &#8216;some string here&#8217;</div></blockquote>
-<p>}</p>
+<p>Format for PUT request:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;nickname&#39;</span><span class="p">:</span> <span class="s1">&#39;some string here&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -384,6 +409,7 @@ in 60+ individual API calls to Nessie.</p>
 <code class="descname">create_bill</code><span class="sig-paren">(</span><em>acc_id</em>, <em>bill</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.bill.Bill.create_bill" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new bill inside a given account</p>
 <p>Format for POST Request:
+::
 {</p>
 <blockquote>
 <div>&#8216;status&#8217;: &#8216;pending&#8217; | &#8216;cancelled&#8217; | &#8216;completed&#8217; | &#8216;recurring&#8217; ,
@@ -478,16 +504,17 @@ in 60+ individual API calls to Nessie.</p>
 <dt id="nessie.bill.Bill.update_bill">
 <code class="descname">update_bill</code><span class="sig-paren">(</span><em>bill_id</em>, <em>bill</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.bill.Bill.update_bill" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update metadata associated with a bill</p>
-<p>Format for PUT Request:
-{</p>
-<blockquote>
-<div>&#8216;status&#8217;: &#8216;pending&#8217; | &#8216;cancelled&#8217; | &#8216;completed&#8217; | &#8216;recurring&#8217; ,
-&#8216;payee&#8217;: &#8216;string&#8217;,
-&#8216;nickname&#8217;: &#8216;string&#8217;,
-&#8216;payment_date&#8217;: &#8216;YYYY-MM-DD&#8217;,
-&#8216;recurring_date&#8217;: int [1-31],
-&#8216;payment_amount&#8217;: int</div></blockquote>
-<p>}</p>
+<p>Format for PUT Request:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;pending&#39;</span> <span class="o">|</span> <span class="s1">&#39;cancelled&#39;</span> <span class="o">|</span> <span class="s1">&#39;completed&#39;</span> <span class="o">|</span> <span class="s1">&#39;recurring&#39;</span> <span class="p">,</span>
+  <span class="s1">&#39;payee&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;nickname&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;payment_date&#39;</span><span class="p">:</span> <span class="s1">&#39;YYYY-MM-DD&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;recurring_date&#39;</span><span class="p">:</span> <span class="nb">int</span> <span class="p">[</span><span class="mi">1</span><span class="o">-</span><span class="mi">31</span><span class="p">],</span>
+  <span class="s1">&#39;payment_amount&#39;</span><span class="p">:</span> <span class="nb">int</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
