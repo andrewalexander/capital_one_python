@@ -3,6 +3,10 @@ import config
 
 
 class Atm:
+    """
+    ATM class - get ATM locations
+    """
+
     def __init__(self):
         self.base_url = config.base_url
         self.url_with_entity = self.base_url + '/atms'

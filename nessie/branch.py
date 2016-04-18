@@ -3,6 +3,10 @@ import config
 
 
 class Branch():
+    """
+    Branch class - get branch information
+    """
+
     def __init__(self):
         self.base_url = config.base_url
         self.url_with_entity = self.base_url + '/branches'

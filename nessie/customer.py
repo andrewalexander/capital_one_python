@@ -4,6 +4,10 @@ import config
 
 
 class Customer():
+    """
+    Customer class - get/update customer information
+    """
+
     def __init__(self):
         self.base_url = config.base_url
         self.url_with_entity = self.base_url + '/customers'

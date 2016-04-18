@@ -4,6 +4,10 @@ import config
 
 
 class Deposit():
+    """
+    Deposit class - get/create/update deposits
+    """
+
     def __init__(self):
         self.base_url = config.base_url
         self.url_with_entity = self.base_url + '/accounts'
