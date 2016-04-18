@@ -152,14 +152,15 @@
 <dt id="nessie.account.Account.create_account">
 <code class="descname">create_account</code><span class="sig-paren">(</span><em>cust_id</em>, <em>request_data</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.account.Account.create_account" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a new account for cust_id using the details in request_data</p>
-<p>Format for POST request:``
-{</p>
-<blockquote>
-<div>&#8216;type&#8217;: &#8216;Checking&#8217; | &#8216;Credit Card&#8217;,
-&#8216;nickname&#8217;: &#8216;string&#8217;,
-&#8216;rewards&#8217;: int,
-&#8216;balance&#8217;: float</div></blockquote>
-<p>}``</p>
+<p>Format for POST request:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;Checking&#39;</span> <span class="o">|</span> <span class="s1">&#39;Credit Card&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;nickname&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;rewards&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="s1">&#39;balance&#39;</span><span class="p">:</span> <span class="nb">float</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -170,28 +171,7 @@
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p><strong>dict with status code</strong> &#8211;</p>
-<dl class="docutils">
-<dt><a href="#id1"><span class="problematic" id="id2">``</span></a>{</dt>
-<dd><p class="first">&#8220;code&#8221;: 201,
-&#8220;message&#8221;: &#8220;Account created&#8221;,
-&#8220;objectCreated&#8221;: {</p>
-<blockquote>
-<div><p>&#8220;type&#8221;: &#8220;Credit Card&#8221;,
-&#8220;nickname&#8221;: &#8220;Brand New test Account&#8221;,
-&#8220;rewards&#8221;: 0,
-&#8220;balance&#8221;: 0,
-&#8220;customer_id&#8221;: &#8220;string&#8221;,
-&#8220;_id&#8221;: &#8220;string&#8221;</p>
-</div></blockquote>
-<p class="last">}</p>
-</dd>
-</dl>
-<p>}``</p>
-</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">201</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">dict with status code (201) and response object from Nessie backend with details about created object</p>
 </td>
 </tr>
 </tbody>
