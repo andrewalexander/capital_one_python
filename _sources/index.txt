@@ -21,6 +21,8 @@ Contents:
 		purchase 		<purchase.rst>
 		transfer 		<transfer.rst>
 		withdrawal 		<withdrawal.rst>
+		modules 		<modules.rst>
+		nessie 		<nessie.rst>
 
 
 
