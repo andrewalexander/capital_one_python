@@ -117,10 +117,9 @@ deposit = {
         'deposit_id': '571420e58a710f8e12324a16'
     },
     'update_deposit': {
-        'deposit_id': '571420e58a710f8e12324a16',
+        'deposit_id': '571425f98a710f8e12324a23',
         'deposit': {
             'medium': 'balance',
-            'amount': 666,
             'description': 'Regular transfer for bills (deviled)'
         }
     },

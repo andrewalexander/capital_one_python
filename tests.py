@@ -158,7 +158,15 @@ class TestDepositClass(unittest.TestCase):
         self.assertEqual(response['code'], 200, msg='Received a {} status code'.format(response['code']))
         self.assertTrue(isinstance(response['deposit'], dict), msg='Did not get a deposit')
 
-    def test_update_deposit(self):
+    def test_create_and_update_deposit(self):
+        # need to do the two back to back otherwise we will get a 404 on the update
+        response = self.deposit.create_deposit(**context.deposit['create_deposit'])
+        self.assertEqual(response['code'], 201, msg='Received a {} status code'.format(response['code']))
+        self.assertTrue(isinstance(response['message'], basestring), msg='Did not get a response')
+        self.assertTrue(isinstance(response['objectCreated'], dict), msg='Did not get a response object')
+
+        # now update the object we just created
+        context.deposit['update_deposit']['deposit_id'] = response['objectCreated']['_id']
         response = self.deposit.update_deposit(**context.deposit['update_deposit'])
         self.assertEqual(response['code'], 202, msg='Received a {} status code'.format(response['code']))
         self.assertTrue(isinstance(response['message'], basestring), msg='Did not get a response')
@@ -180,6 +188,7 @@ if __name__ == '__main__':
     # fullTestSuite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestAtmClass))
     # fullTestSuite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestBillClass))
     # fullTestSuite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestCustomerClass))
-    fullTestSuite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestBranchClass))
+    # fullTestSuite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestBranchClass))
+    fullTestSuite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestDepositClass))
     unittest.TextTestRunner(verbosity=2).run(fullTestSuite)
 

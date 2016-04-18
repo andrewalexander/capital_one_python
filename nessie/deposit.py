@@ -27,7 +27,7 @@ class Deposit():
         }
 
     def get_one(self, deposit_id):
-        url = '%s/deposits/%s?key=%s' % (self.url, deposit_id, self.api_key)
+        url = '%s/deposits/%s?key=%s' % (self.base_url, deposit_id, self.api_key)
         response = requests.get(url)
 
         return {
@@ -53,10 +53,10 @@ class Deposit():
         Returns:
             dict of status code (202) and response message from Nessie
         """
-        url = '%s/deposits/%s?key=%s' % (self.url_with_entity, deposit_id, self.api_key)
+        url = '%s/deposits/%s?key=%s' % (self.base_url, deposit_id, self.api_key)
         headers = {'content-type': 'application/json'}
         response = requests.put(url, params=None, data=json.dumps(deposit), headers=headers)
-
+        print response.content
         return {
             'code': response.status_code,
             'message': response.json().get('message', None)
@@ -93,7 +93,7 @@ class Deposit():
 
     # DELETE
     def delete_deposit(self, acc_id, deposit_id):
-        url = '%s/%s/deposits/%s?key=%s' % (self.url_with_entity, acc_id, deposit_id, self.api_key)
+        url = '%s/deposits/%s?key=%s' % (self.base_url, deposit_id, self.api_key)
         response = requests.delete(url)
 
         return {
