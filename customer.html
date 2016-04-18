@@ -35,6 +35,9 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="deposit.html" title="Deposit"
              accesskey="N">next</a> |</li>
         <li class="right" >
@@ -49,8 +52,107 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="customer">
-<h1>Customer<a class="headerlink" href="#customer" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-nessie.customer">
+<span id="customer"></span><h1>Customer<a class="headerlink" href="#module-nessie.customer" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nessie.customer.Customer">
+<em class="property">class </em><code class="descclassname">nessie.customer.</code><code class="descname">Customer</code><a class="headerlink" href="#nessie.customer.Customer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Customer class - get/update customer information</p>
+<dl class="method">
+<dt id="nessie.customer.Customer.create_customer">
+<code class="descname">create_customer</code><span class="sig-paren">(</span><em>customer</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.customer.Customer.create_customer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new customer</p>
+<p>Format for POST request:
+&#8216;customer&#8217;: {</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>&#8216;address&#8217;: {</dt>
+<dd>&#8216;street_number&#8217;: &#8216;1&#8217;,
+&#8216;street_name&#8217;: &#8216;Infinite Circle&#8217;,
+&#8216;city&#8217;: &#8216;Nontain View&#8217;,
+&#8216;state&#8217;: &#8216;CA&#8217;,
+&#8216;zip&#8217;: &#8216;12345&#8217;</dd>
+</dl>
+<p>},
+&#8216;first_name&#8217;: &#8216;Test&#8217;,
+&#8216;last_name&#8217;: &#8216;Customer&#8217;</p>
+</div></blockquote>
+<p>}</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>customer: dict of new customer metadata</dd>
+<dt>Returns:</dt>
+<dd>dict of status code and response object from create</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.customer.Customer.get_all">
+<code class="descname">get_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nessie.customer.Customer.get_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get descriptions for all customers</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>dict of status code and list of customers</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.customer.Customer.get_one">
+<code class="descname">get_one</code><span class="sig-paren">(</span><em>cust_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.customer.Customer.get_one" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single customer description</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>cust_id: ID of the customer to fetch</dd>
+<dt>Returns:</dt>
+<dd>dict of status code and the customer description</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.customer.Customer.get_one_by_account_id">
+<code class="descname">get_one_by_account_id</code><span class="sig-paren">(</span><em>acc_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.customer.Customer.get_one_by_account_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the customer description from account ID</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>acc_id: account ID to fetch customer info from</dd>
+<dt>Returns:</dt>
+<dd>dict of status code and the customer description</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.customer.Customer.update_customer">
+<code class="descname">update_customer</code><span class="sig-paren">(</span><em>cust_id</em>, <em>customer</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.customer.Customer.update_customer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update customer information</p>
+<dl class="docutils">
+<dt>Format of PUT request:</dt>
+<dd><dl class="first last docutils">
+<dt>&#8216;customer&#8217;: {</dt>
+<dd><dl class="first docutils">
+<dt>&#8216;address&#8217;: {</dt>
+<dd>&#8216;street_number&#8217;: &#8216;42&#8217;,
+&#8216;street_name&#8217;: &#8216;Life Universe Everything Way&#8217;,
+&#8216;city&#8217;: &#8216;Undefined&#8217;,
+&#8216;state&#8217;: &#8216;CO&#8217;,
+&#8216;zip&#8217;: &#8216;42424&#8217;</dd>
+</dl>
+<p class="last">}</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>}</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>cust_id: ID of the customer to update
+customer: dict of updated customer metadata</dd>
+<dt>Returns:</dt>
+<dd>dict of status code (202) and message from Nessie backend</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 
@@ -92,6 +194,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
         <li class="right" >
           <a href="deposit.html" title="Deposit"
              >next</a> |</li>

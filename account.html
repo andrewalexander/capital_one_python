@@ -35,6 +35,9 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="atm.html" title="ATM"
              accesskey="N">next</a> |</li>
         <li class="right" >
@@ -49,8 +52,131 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="account">
-<h1>Account<a class="headerlink" href="#account" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-nessie.account">
+<span id="account"></span><h1>Account<a class="headerlink" href="#module-nessie.account" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nessie.account.Account">
+<em class="property">class </em><code class="descclassname">nessie.account.</code><code class="descname">Account</code><a class="headerlink" href="#nessie.account.Account" title="Permalink to this definition">¶</a></dt>
+<dd><p>Account class - get/update account information</p>
+<dl class="method">
+<dt id="nessie.account.Account.create_account">
+<code class="descname">create_account</code><span class="sig-paren">(</span><em>cust_id</em>, <em>request_data</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.account.Account.create_account" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new account for cust_id using the details in request_data</p>
+<p>Format for POST request:
+{</p>
+<blockquote>
+<div>&#8216;type&#8217;: &#8216;Checking&#8217; | &#8216;Credit Card&#8217;,
+&#8216;nickname&#8217;: &#8216;string&#8217;,
+&#8216;rewards&#8217;: int,
+&#8216;balance&#8217;: float</div></blockquote>
+<p>}</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>cust_id: The owner of the new account we are creating
+request_data: The dict containing the details of the new account following the format above</dd>
+<dt>Returns:</dt>
+<dd><p class="first">dict with status code (201) and response object from Nessie backend with details about created object:
+{</p>
+<blockquote>
+<div><p>&#8220;code&#8221;: 201,
+&#8220;message&#8221;: &#8220;Account created&#8221;,
+&#8220;objectCreated&#8221;: {</p>
+<blockquote>
+<div>&#8220;type&#8221;: &#8220;Credit Card&#8221;,
+&#8220;nickname&#8221;: &#8220;Brand New test Account&#8221;,
+&#8220;rewards&#8221;: 0,
+&#8220;balance&#8221;: 0,
+&#8220;customer_id&#8221;: &#8220;string&#8221;,
+&#8220;_id&#8221;: &#8220;string&#8221;</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.account.Account.delete_account">
+<code class="descname">delete_account</code><span class="sig-paren">(</span><em>acc_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.account.Account.delete_account" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete the account specified by acc_id</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>acc_id: The account ID to delete</dd>
+<dt>Returns:</dt>
+<dd>dict with status code (204) and empty response</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.account.Account.get_all">
+<code class="descname">get_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nessie.account.Account.get_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all accounts</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>dict with status code (200) and list of all accounts</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.account.Account.get_all_by_customer_id">
+<code class="descname">get_all_by_customer_id</code><span class="sig-paren">(</span><em>cust_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.account.Account.get_all_by_customer_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all accounts for a customer</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>cust_id: string for customer ID</dd>
+<dt>Returns:</dt>
+<dd>dict with status code (200) and list of accounts for cust_id</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.account.Account.get_all_by_type">
+<code class="descname">get_all_by_type</code><span class="sig-paren">(</span><em>acc_type</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.account.Account.get_all_by_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filter the get_all by account type</p>
+<dl class="docutils">
+<dt>Args</dt>
+<dd><dl class="first last docutils">
+<dt>acc_type: &#8216;string&#8217;</dt>
+<dd>Valid options: &#8216;Credit Card&#8217; | &#8216;Checking&#8217; | &#8216;Savings&#8217;</dd>
+</dl>
+</dd>
+<dt>Returns:</dt>
+<dd>dict with status code (200) and list of all accounts of the requested type</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.account.Account.get_one">
+<code class="descname">get_one</code><span class="sig-paren">(</span><em>acc_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.account.Account.get_one" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get one account by acc_id</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>acc_id: account ID to fetch</dd>
+<dt>Returns:</dt>
+<dd>dict with status code (200) and the account information for acc_id</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.account.Account.update_account">
+<code class="descname">update_account</code><span class="sig-paren">(</span><em>acc_id</em>, <em>request_data</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.account.Account.update_account" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates account information for specified acc_id</p>
+<p>Format for PUT request:
+{</p>
+<blockquote>
+<div>&#8216;nickname&#8217;: &#8216;some string here&#8217;</div></blockquote>
+<p>}</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>acc_id: account ID for account to update
+request_data: dict of PUT data following the format above</dd>
+<dt>Returns:</dt>
+<dd>dict with status code (202) and response message from Nessie backend</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 
@@ -92,6 +218,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
         <li class="right" >
           <a href="atm.html" title="ATM"
              >next</a> |</li>

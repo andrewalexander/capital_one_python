@@ -35,6 +35,9 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="bill.html" title="Bill"
              accesskey="N">next</a> |</li>
         <li class="right" >
@@ -49,8 +52,65 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="atm">
-<h1>ATM<a class="headerlink" href="#atm" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-nessie.atm">
+<span id="atm"></span><h1>ATM<a class="headerlink" href="#module-nessie.atm" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nessie.atm.Atm">
+<em class="property">class </em><code class="descclassname">nessie.atm.</code><code class="descname">Atm</code><a class="headerlink" href="#nessie.atm.Atm" title="Permalink to this definition">¶</a></dt>
+<dd><p>ATM class - get ATM locations</p>
+<dl class="method">
+<dt id="nessie.atm.Atm.get_all">
+<code class="descname">get_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nessie.atm.Atm.get_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all ATM information</p>
+<dl class="docutils">
+<dt>NOTE:</dt>
+<dd>This endpoint deals with many paged results and can result
+in 60+ individual API calls to Nessie.</dd>
+<dt>Returns:</dt>
+<dd>dict with status code (200) and list of ATMs</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.atm.Atm.get_all_by_location">
+<code class="descname">get_all_by_location</code><span class="sig-paren">(</span><em>lat</em>, <em>lng</em>, <em>rad</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.atm.Atm.get_all_by_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all ATMs within a certain radius for a given latitude/longitude</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>lat: Latitude of location
+lng: Longitude of location
+rad: Radius (in miles) around (lat, lng) to fetch results for</dd>
+<dt>Returns:</dt>
+<dd>dict with status code (200) and list of ATMs around given location</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.atm.Atm.get_one">
+<code class="descname">get_one</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.atm.Atm.get_one" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single ATM description</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>id: ATM ID to get description for</dd>
+<dt>Returns:</dt>
+<dd>dict with status code (200) and single ATM description</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.atm.Atm.paginate_results">
+<code class="descname">paginate_results</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.atm.Atm.paginate_results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper function for dealing with pages of results</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>response: the response body from a request that is paginated</dd>
+<dt>Returns:</dt>
+<dd>concatenated list of all pages&#8217; data</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 
@@ -92,6 +152,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
         <li class="right" >
           <a href="bill.html" title="Bill"
              >next</a> |</li>

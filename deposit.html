@@ -35,6 +35,9 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="merchant.html" title="Merchant"
              accesskey="N">next</a> |</li>
         <li class="right" >
@@ -49,8 +52,99 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="deposit">
-<h1>Deposit<a class="headerlink" href="#deposit" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-nessie.deposit">
+<span id="deposit"></span><h1>Deposit<a class="headerlink" href="#module-nessie.deposit" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nessie.deposit.Deposit">
+<em class="property">class </em><code class="descclassname">nessie.deposit.</code><code class="descname">Deposit</code><a class="headerlink" href="#nessie.deposit.Deposit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deposit class - get/create/update deposits</p>
+<dl class="method">
+<dt id="nessie.deposit.Deposit.create_deposit">
+<code class="descname">create_deposit</code><span class="sig-paren">(</span><em>acc_id</em>, <em>deposit</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.deposit.Deposit.create_deposit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new deposit to an acc_id</p>
+<p>Format of POST request:
+&#8216;deposit&#8217;: {</p>
+<blockquote>
+<div>&#8216;medium&#8217;: &#8216;balance&#8217; | &#8216;rewards&#8217;,
+&#8216;transaction_date&#8217;: &#8216;YYYY-MM-DD&#8217;,
+&#8216;status&#8217;: &#8216;pending&#8217; | &#8216;cancelled&#8217; | &#8216;recurring&#8217;,
+&#8216;amount&#8217;: int,
+&#8216;description&#8217;: &#8216;string&#8217;</div></blockquote>
+<p>}</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>acc_id: ID of the account to dump the new deposit into
+deposit: dict containing the new deposit metadata</dd>
+<dt>Returns:</dt>
+<dd>dict of status code (201) and response object from Nessie</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.deposit.Deposit.delete_deposit">
+<code class="descname">delete_deposit</code><span class="sig-paren">(</span><em>deposit_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.deposit.Deposit.delete_deposit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a deposit</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>deposit_id: ID of the deposit to delete</dd>
+<dt>Returns:</dt>
+<dd>dict of status code (204)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.deposit.Deposit.get_all_by_account_id">
+<code class="descname">get_all_by_account_id</code><span class="sig-paren">(</span><em>acc_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.deposit.Deposit.get_all_by_account_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all deposits for given account ID</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>acc_id: ID of account to fetch deposits for</dd>
+<dt>Returns:</dt>
+<dd>dict of status code (200) and list of deposits</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.deposit.Deposit.get_one">
+<code class="descname">get_one</code><span class="sig-paren">(</span><em>deposit_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.deposit.Deposit.get_one" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get deposit description for given deposit ID</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>deposit_id: ID of the deposit to fetch</dd>
+<dt>Returns:</dt>
+<dd>dict of status code (200) and deposit description</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.deposit.Deposit.update_deposit">
+<code class="descname">update_deposit</code><span class="sig-paren">(</span><em>deposit_id</em>, <em>deposit</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.deposit.Deposit.update_deposit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update metadata associated with a deposit</p>
+<dl class="docutils">
+<dt>NOTE:</dt>
+<dd>This will return a 404 if the deposit status is &#8216;executed&#8217;
+or &#8216;cancelled&#8217;, so it should only be called immediately after
+a &#8216;create&#8217;.</dd>
+</dl>
+<p>Format of PUT request:
+&#8216;deposit&#8217;: {</p>
+<blockquote>
+<div>&#8216;medium&#8217;: &#8216;balance&#8217; | &#8216;rewards&#8217;,
+&#8216;amount&#8217;: int,
+&#8216;description&#8217;: &#8216;string&#8217;
+}</div></blockquote>
+<p>}</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>deposit_id: ID of the deposit to update
+deposit: dict containing the updated deposit metadata</dd>
+<dt>Returns:</dt>
+<dd>dict of status code (202) and response message from Nessie</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 
@@ -92,6 +186,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
         <li class="right" >
           <a href="merchant.html" title="Merchant"
              >next</a> |</li>
