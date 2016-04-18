@@ -7,6 +7,7 @@ Welcome to Nessie Python's documentation!
 ================================================
 
 Contents:
+=========
 
 .. toctree::
    :maxdepth: 2
