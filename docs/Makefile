@@ -6,6 +6,7 @@ SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
 PAPER         =
 BUILDDIR      = _build
+HTMLBUILDDIR  = ../../capital_one_python_docs
 
 # User-friendly check for sphinx-build
 ifeq ($(shell which $(SPHINXBUILD) >/dev/null 2>&1; echo $$?), 1)
@@ -55,9 +56,12 @@ clean:
 
 .PHONY: html
 html:
-	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
+	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(HTMLBUILDDIR)/html
 	@echo
-	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
+	@echo "Committing changes to gh-pages branch..."
+	cd ../../capital_one_python_docs/html; git add .; git commit -m "Update docs"; git push origin gh-pages; cd ../../capital_one_python/docs;
+	@echo
+	@echo "Build finished. The HTML pages are in $(HTMLBUILDDIR)/html."
 
 .PHONY: dirhtml
 dirhtml:
