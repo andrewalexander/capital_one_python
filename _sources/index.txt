@@ -11,16 +11,6 @@ Contents:
 .. toctree::
    :maxdepth: 2
    
-		account 		<account.rst>
-		atm 			<atm.rst>
-		bill 			<bill.rst>
-		branch 			<branch.rst>
-		customer 		<customer.rst>
-		deposit 		<deposit.rst>
-		merchant 		<merchant.rst>
-		purchase 		<purchase.rst>
-		transfer 		<transfer.rst>
-		withdrawal 		<withdrawal.rst>
 		modules 		<modules.rst>
 		nessie 		<nessie.rst>
 
