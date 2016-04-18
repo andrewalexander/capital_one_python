@@ -27,6 +27,14 @@ class Deposit():
         }
 
     def get_one(self, deposit_id):
+        """
+        Get deposit description for given deposit ID
+
+        Args:
+            deposit_id: ID of the deposit to fetch
+        Returns:
+            dict of status code (200) and deposit description
+        """
         url = '%s/deposits/%s?key=%s' % (self.base_url, deposit_id, self.api_key)
         response = requests.get(url)
 
@@ -38,6 +46,11 @@ class Deposit():
     def update_deposit(self, deposit_id, deposit):
         """
         Update metadata associated with a deposit
+
+        NOTE:
+            This will return a 404 if the deposit status is 'executed'
+            or 'cancelled', so it should only be called immediately after
+            a 'create'.
 
         Format of PUT request:
         'deposit': {
@@ -91,28 +104,18 @@ class Deposit():
             'objectCreated': response.json().get('objectCreated', None)
         }
 
-    # DELETE
-    def delete_deposit(self, acc_id, deposit_id):
+    def delete_deposit(self, deposit_id):
+        """
+        Delete a deposit
+
+        Args:
+            deposit_id: ID of the deposit to delete
+        Returns:
+            dict of status code (204)
+        """
         url = '%s/deposits/%s?key=%s' % (self.base_url, deposit_id, self.api_key)
         response = requests.delete(url)
 
         return {
             'code': response.status_code
         }
-
-
-# Test Data
-d = Deposit()
-acc_id = '555bed95a520e036e52b262e'
-deposit_id = '55c8fb422644c1aa10651625'
-update_payload = {
-    'medium': 'balance',
-    'amount': "0",
-    'description': 'successful update'
-}
-# print d.get_all_by_account_id(acc_id)
-# print d.getOneByAccountIdDepositId(acc_id, deposit_id)
-# want get_one to accept:
-#   acc_id
-#   deposit_id (opt)?
-# print d.update_deposit(acc_id, deposit_id, update_payload)
