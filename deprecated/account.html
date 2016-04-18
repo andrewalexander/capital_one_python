@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Account &mdash; Nessie Python 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Nessie Python 0.1.0 documentation" href="../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Nessie Python 0.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-nessie.account">
+<span id="account"></span><h1>Account<a class="headerlink" href="#module-nessie.account" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nessie.account.Account">
+<em class="property">class </em><code class="descclassname">nessie.account.</code><code class="descname">Account</code><a class="headerlink" href="#nessie.account.Account" title="Permalink to this definition">¶</a></dt>
+<dd><p>Account class - get/update account information</p>
+<dl class="method">
+<dt id="nessie.account.Account.create_account">
+<code class="descname">create_account</code><span class="sig-paren">(</span><em>cust_id</em>, <em>request_data</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.account.Account.create_account" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new account for cust_id using the details in request_data</p>
+<p>Format for POST request:
+{</p>
+<blockquote>
+<div>&#8216;type&#8217;: &#8216;Checking&#8217; | &#8216;Credit Card&#8217;,
+&#8216;nickname&#8217;: &#8216;string&#8217;,
+&#8216;rewards&#8217;: int,
+&#8216;balance&#8217;: float</div></blockquote>
+<p>}</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>cust_id</strong> &#8211; The owner of the new account we are creating</li>
+<li><strong>request_data</strong> &#8211; The dict containing the details of the new account following the format above</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p><strong>dict with status code</strong> &#8211;</p>
+<dl class="docutils">
+<dt>{</dt>
+<dd><p class="first">&#8220;code&#8221;: 201,
+&#8220;message&#8221;: &#8220;Account created&#8221;,
+&#8220;objectCreated&#8221;: {</p>
+<blockquote>
+<div><p>&#8220;type&#8221;: &#8220;Credit Card&#8221;,
+&#8220;nickname&#8221;: &#8220;Brand New test Account&#8221;,
+&#8220;rewards&#8221;: 0,
+&#8220;balance&#8221;: 0,
+&#8220;customer_id&#8221;: &#8220;string&#8221;,
+&#8220;_id&#8221;: &#8220;string&#8221;</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+</dl>
+<p>}</p>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">201</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.account.Account.delete_account">
+<code class="descname">delete_account</code><span class="sig-paren">(</span><em>acc_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.account.Account.delete_account" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete the account specified by acc_id</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>acc_id</strong> &#8211; The account ID to delete</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dict with status code (204) and empty response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.account.Account.get_all">
+<code class="descname">get_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nessie.account.Account.get_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all accounts</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">dict with status code (200) and list of all accounts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.account.Account.get_all_by_customer_id">
+<code class="descname">get_all_by_customer_id</code><span class="sig-paren">(</span><em>cust_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.account.Account.get_all_by_customer_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all accounts for a customer</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cust_id</strong> &#8211; string for customer ID</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dict with status code (200) and list of accounts for cust_id</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.account.Account.get_all_by_type">
+<code class="descname">get_all_by_type</code><span class="sig-paren">(</span><em>acc_type</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.account.Account.get_all_by_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filter the get_all by account type</p>
+<dl class="docutils">
+<dt>Args</dt>
+<dd><dl class="first last docutils">
+<dt>acc_type: &#8216;string&#8217;</dt>
+<dd>Valid options: &#8216;Credit Card&#8217; | &#8216;Checking&#8217; | &#8216;Savings&#8217;</dd>
+</dl>
+</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">dict with status code (200) and list of all accounts of the requested type</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.account.Account.get_one">
+<code class="descname">get_one</code><span class="sig-paren">(</span><em>acc_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.account.Account.get_one" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get one account by acc_id</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>acc_id</strong> &#8211; account ID to fetch</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dict with status code (200) and the account information for acc_id</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nessie.account.Account.update_account">
+<code class="descname">update_account</code><span class="sig-paren">(</span><em>acc_id</em>, <em>request_data</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.account.Account.update_account" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates account information for specified acc_id</p>
+<p>Format for PUT request:
+{</p>
+<blockquote>
+<div>&#8216;nickname&#8217;: &#8216;some string here&#8217;</div></blockquote>
+<p>}</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>acc_id</strong> &#8211; account ID for account to update</li>
+<li><strong>request_data</strong> &#8211; dict of PUT data following the format above</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">dict with status code (202) and response message from Nessie backend</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/deprecated/account.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Nessie Python 0.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Andrew Alexander, Shane Besong.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1.
+    </div>
+  </body>
+</html>
