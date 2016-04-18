@@ -1,6 +1,9 @@
 # capital_one_python
 Python wrapper for Capital One's hackathon API
 
+Docs:
+http://andrewalexander.github.io/capital_one_python/
+
 Please note, this is still in the development phase and not all classes are ready for use.
 
 TODO:
