@@ -702,15 +702,16 @@ in 60+ individual API calls to Nessie.</p>
 <dt id="nessie.deposit.Deposit.create_deposit">
 <code class="descname">create_deposit</code><span class="sig-paren">(</span><em>acc_id</em>, <em>deposit</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.deposit.Deposit.create_deposit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new deposit to an acc_id</p>
-<p>Format of POST request:
-&#8216;deposit&#8217;: {</p>
-<blockquote>
-<div>&#8216;medium&#8217;: &#8216;balance&#8217; | &#8216;rewards&#8217;,
-&#8216;transaction_date&#8217;: &#8216;YYYY-MM-DD&#8217;,
-&#8216;status&#8217;: &#8216;pending&#8217; | &#8216;cancelled&#8217; | &#8216;recurring&#8217;,
-&#8216;amount&#8217;: int,
-&#8216;description&#8217;: &#8216;string&#8217;</div></blockquote>
-<p>}</p>
+<p>Format of POST request:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">deposit</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;medium&#39;</span><span class="p">:</span> <span class="s1">&#39;balance&#39;</span> <span class="o">|</span> <span class="s1">&#39;rewards&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;transaction_date&#39;</span><span class="p">:</span> <span class="s1">&#39;YYYY-MM-DD&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;pending&#39;</span> <span class="o">|</span> <span class="s1">&#39;cancelled&#39;</span> <span class="o">|</span> <span class="s1">&#39;recurring&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;amount&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -786,14 +787,15 @@ in 60+ individual API calls to Nessie.</p>
 or &#8216;cancelled&#8217;, so it should only be called immediately after
 a &#8216;create&#8217;.</p>
 </div>
-<p>Format of PUT request:
-&#8216;deposit&#8217;: {</p>
-<blockquote>
-<div>&#8216;medium&#8217;: &#8216;balance&#8217; | &#8216;rewards&#8217;,
-&#8216;amount&#8217;: int,
-&#8216;description&#8217;: &#8216;string&#8217;
-}</div></blockquote>
-<p>}</p>
+<p>Format of PUT request:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">deposit</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;medium&#39;</span><span class="p">:</span> <span class="s1">&#39;balance&#39;</span> <span class="o">|</span> <span class="s1">&#39;rewards&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;amount&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
