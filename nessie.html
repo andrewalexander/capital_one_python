@@ -405,17 +405,17 @@ in 60+ individual API calls to Nessie.</p>
 <dt id="nessie.bill.Bill.create_bill">
 <code class="descname">create_bill</code><span class="sig-paren">(</span><em>acc_id</em>, <em>bill</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.bill.Bill.create_bill" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new bill inside a given account</p>
-<p>Format for POST Request:
-::
-{</p>
-<blockquote>
-<div>&#8216;status&#8217;: &#8216;pending&#8217; | &#8216;cancelled&#8217; | &#8216;completed&#8217; | &#8216;recurring&#8217; ,
-&#8216;payee&#8217;: &#8216;string&#8217;,
-&#8216;nickname&#8217;: &#8216;string&#8217;,
-&#8216;payment_date&#8217;: &#8216;YYYY-MM-DD&#8217;,
-&#8216;recurring_date&#8217;: int [1-31],
-&#8216;payment_amount: int</div></blockquote>
-<p>}</p>
+<p>Format for POST Request:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;pending&#39;</span> <span class="o">|</span> <span class="s1">&#39;cancelled&#39;</span> <span class="o">|</span> <span class="s1">&#39;completed&#39;</span> <span class="o">|</span> <span class="s1">&#39;recurring&#39;</span> <span class="p">,</span>
+  <span class="s1">&#39;payee&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;nickname&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;payment_date&#39;</span><span class="p">:</span> <span class="s1">&#39;YYYY-MM-DD&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;recurring_date&#39;</span><span class="p">:</span> <span class="nb">int</span> <span class="p">[</span><span class="mi">1</span><span class="o">-</span><span class="mi">31</span><span class="p">],</span>
+  <span class="s1">&#39;payment_amount: int</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -501,15 +501,6 @@ in 60+ individual API calls to Nessie.</p>
 <dt id="nessie.bill.Bill.update_bill">
 <code class="descname">update_bill</code><span class="sig-paren">(</span><em>bill_id</em>, <em>bill</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.bill.Bill.update_bill" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update metadata associated with a bill.</p>
-<p>Format for POST request:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;Checking&#39;</span> <span class="o">|</span> <span class="s1">&#39;Credit Card&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;nickname&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;rewards&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-    <span class="s1">&#39;balance&#39;</span><span class="p">:</span> <span class="nb">int</span>
-<span class="p">}</span>
-</pre></div>
-</div>
 <p>Format for PUT Request:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;pending&#39;</span> <span class="o">|</span> <span class="s1">&#39;cancelled&#39;</span> <span class="o">|</span> <span class="s1">&#39;completed&#39;</span> <span class="o">|</span> <span class="s1">&#39;recurring&#39;</span> <span class="p">,</span>
