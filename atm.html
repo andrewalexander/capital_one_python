@@ -6,9 +6,9 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>ATM &mdash; C1 Nessie Python SDK 0.1.0 documentation</title>
+    <title>ATM &mdash; Nessie Python 0.1.0 documentation</title>
     
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -23,94 +23,23 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="C1 Nessie Python SDK 0.1.0 documentation" href="index.html" />
+    <link rel="top" title="Nessie Python 0.1.0 documentation" href="index.html" />
     <link rel="next" title="Bill" href="bill.html" />
-    <link rel="prev" title="Account" href="account.html" /> 
+    <link rel="prev" title="Account" href="account.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
   </head>
-  <body role="document">
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="bill.html" title="Bill"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="account.html" title="Account"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">C1 Nessie Python SDK 0.1.0 documentation</a> &raquo;</li> 
-      </ul>
-    </div>  
+  <body role="document">  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-nessie.atm">
-<span id="atm"></span><h1>ATM<a class="headerlink" href="#module-nessie.atm" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
-<dt id="nessie.atm.Atm">
-<em class="property">class </em><code class="descclassname">nessie.atm.</code><code class="descname">Atm</code><a class="headerlink" href="#nessie.atm.Atm" title="Permalink to this definition">¶</a></dt>
-<dd><p>ATM class - get ATM locations</p>
-<dl class="method">
-<dt id="nessie.atm.Atm.get_all">
-<code class="descname">get_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nessie.atm.Atm.get_all" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get all ATM information</p>
-<dl class="docutils">
-<dt>NOTE:</dt>
-<dd>This endpoint deals with many paged results and can result
-in 60+ individual API calls to Nessie.</dd>
-<dt>Returns:</dt>
-<dd>dict with status code (200) and list of ATMs</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="nessie.atm.Atm.get_all_by_location">
-<code class="descname">get_all_by_location</code><span class="sig-paren">(</span><em>lat</em>, <em>lng</em>, <em>rad</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.atm.Atm.get_all_by_location" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get all ATMs within a certain radius for a given latitude/longitude</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>lat: Latitude of location
-lng: Longitude of location
-rad: Radius (in miles) around (lat, lng) to fetch results for</dd>
-<dt>Returns:</dt>
-<dd>dict with status code (200) and list of ATMs around given location</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="nessie.atm.Atm.get_one">
-<code class="descname">get_one</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.atm.Atm.get_one" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get a single ATM description</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>id: ATM ID to get description for</dd>
-<dt>Returns:</dt>
-<dd>dict with status code (200) and single ATM description</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="nessie.atm.Atm.paginate_results">
-<code class="descname">paginate_results</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.atm.Atm.paginate_results" title="Permalink to this definition">¶</a></dt>
-<dd><p>Helper function for dealing with pages of results</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>response: the response body from a request that is paginated</dd>
-<dt>Returns:</dt>
-<dd>concatenated list of all pages&#8217; data</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+  <div class="section" id="atm">
+<h1>ATM<a class="headerlink" href="#atm" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
@@ -118,13 +47,15 @@ rad: Radius (in miles) around (lat, lng) to fetch results for</dd>
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="account.html"
-                        title="previous chapter">Account</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="bill.html"
-                        title="next chapter">Bill</a></p>
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="account.html" title="previous chapter">Account</a></li>
+      <li>Next: <a href="bill.html" title="next chapter">Bill</a></li>
+  </ul></li>
+</ul>
+</div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -146,27 +77,20 @@ rad: Radius (in miles) around (lat, lng) to fetch results for</dd>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="bill.html" title="Bill"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="account.html" title="Account"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">C1 Nessie Python SDK 0.1.0 documentation</a> &raquo;</li> 
-      </ul>
+    <div class="footer">
+      &copy;2016, Andrew Alexander, Shane Besong.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/atm.txt"
+          rel="nofollow">Page source</a>
     </div>
-    <div class="footer" role="contentinfo">
-        &copy; Copyright 2016, Andrew Alexander, Shane Besong.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1.
-    </div>
+
+    
+
+    
   </body>
 </html>

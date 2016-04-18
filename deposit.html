@@ -6,9 +6,9 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Deposit &mdash; C1 Nessie Python SDK 0.1.0 documentation</title>
+    <title>Deposit &mdash; Nessie Python 0.1.0 documentation</title>
     
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -23,128 +23,23 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="C1 Nessie Python SDK 0.1.0 documentation" href="index.html" />
+    <link rel="top" title="Nessie Python 0.1.0 documentation" href="index.html" />
     <link rel="next" title="Merchant" href="merchant.html" />
-    <link rel="prev" title="Customer" href="customer.html" /> 
+    <link rel="prev" title="Customer" href="customer.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
   </head>
-  <body role="document">
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="merchant.html" title="Merchant"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="customer.html" title="Customer"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">C1 Nessie Python SDK 0.1.0 documentation</a> &raquo;</li> 
-      </ul>
-    </div>  
+  <body role="document">  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-nessie.deposit">
-<span id="deposit"></span><h1>Deposit<a class="headerlink" href="#module-nessie.deposit" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
-<dt id="nessie.deposit.Deposit">
-<em class="property">class </em><code class="descclassname">nessie.deposit.</code><code class="descname">Deposit</code><a class="headerlink" href="#nessie.deposit.Deposit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Deposit class - get/create/update deposits</p>
-<dl class="method">
-<dt id="nessie.deposit.Deposit.create_deposit">
-<code class="descname">create_deposit</code><span class="sig-paren">(</span><em>acc_id</em>, <em>deposit</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.deposit.Deposit.create_deposit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a new deposit to an acc_id</p>
-<p>Format of POST request:
-&#8216;deposit&#8217;: {</p>
-<blockquote>
-<div>&#8216;medium&#8217;: &#8216;balance&#8217; | &#8216;rewards&#8217;,
-&#8216;transaction_date&#8217;: &#8216;YYYY-MM-DD&#8217;,
-&#8216;status&#8217;: &#8216;pending&#8217; | &#8216;cancelled&#8217; | &#8216;recurring&#8217;,
-&#8216;amount&#8217;: int,
-&#8216;description&#8217;: &#8216;string&#8217;</div></blockquote>
-<p>}</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>acc_id: ID of the account to dump the new deposit into
-deposit: dict containing the new deposit metadata</dd>
-<dt>Returns:</dt>
-<dd>dict of status code (201) and response object from Nessie</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="nessie.deposit.Deposit.delete_deposit">
-<code class="descname">delete_deposit</code><span class="sig-paren">(</span><em>deposit_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.deposit.Deposit.delete_deposit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Delete a deposit</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>deposit_id: ID of the deposit to delete</dd>
-<dt>Returns:</dt>
-<dd>dict of status code (204)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="nessie.deposit.Deposit.get_all_by_account_id">
-<code class="descname">get_all_by_account_id</code><span class="sig-paren">(</span><em>acc_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.deposit.Deposit.get_all_by_account_id" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get all deposits for given account ID</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>acc_id: ID of account to fetch deposits for</dd>
-<dt>Returns:</dt>
-<dd>dict of status code (200) and list of deposits</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="nessie.deposit.Deposit.get_one">
-<code class="descname">get_one</code><span class="sig-paren">(</span><em>deposit_id</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.deposit.Deposit.get_one" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get deposit description for given deposit ID</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>deposit_id: ID of the deposit to fetch</dd>
-<dt>Returns:</dt>
-<dd>dict of status code (200) and deposit description</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="nessie.deposit.Deposit.update_deposit">
-<code class="descname">update_deposit</code><span class="sig-paren">(</span><em>deposit_id</em>, <em>deposit</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.deposit.Deposit.update_deposit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update metadata associated with a deposit</p>
-<dl class="docutils">
-<dt>NOTE:</dt>
-<dd>This will return a 404 if the deposit status is &#8216;executed&#8217;
-or &#8216;cancelled&#8217;, so it should only be called immediately after
-a &#8216;create&#8217;.</dd>
-</dl>
-<p>Format of PUT request:
-&#8216;deposit&#8217;: {</p>
-<blockquote>
-<div>&#8216;medium&#8217;: &#8216;balance&#8217; | &#8216;rewards&#8217;,
-&#8216;amount&#8217;: int,
-&#8216;description&#8217;: &#8216;string&#8217;
-}</div></blockquote>
-<p>}</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>deposit_id: ID of the deposit to update
-deposit: dict containing the updated deposit metadata</dd>
-<dt>Returns:</dt>
-<dd>dict of status code (202) and response message from Nessie</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+  <div class="section" id="deposit">
+<h1>Deposit<a class="headerlink" href="#deposit" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
@@ -152,13 +47,15 @@ deposit: dict containing the updated deposit metadata</dd>
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="customer.html"
-                        title="previous chapter">Customer</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="merchant.html"
-                        title="next chapter">Merchant</a></p>
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="customer.html" title="previous chapter">Customer</a></li>
+      <li>Next: <a href="merchant.html" title="next chapter">Merchant</a></li>
+  </ul></li>
+</ul>
+</div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -180,27 +77,20 @@ deposit: dict containing the updated deposit metadata</dd>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="merchant.html" title="Merchant"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="customer.html" title="Customer"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">C1 Nessie Python SDK 0.1.0 documentation</a> &raquo;</li> 
-      </ul>
+    <div class="footer">
+      &copy;2016, Andrew Alexander, Shane Besong.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/deposit.txt"
+          rel="nofollow">Page source</a>
     </div>
-    <div class="footer" role="contentinfo">
-        &copy; Copyright 2016, Andrew Alexander, Shane Besong.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1.
-    </div>
+
+    
+
+    
   </body>
 </html>
