@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
-# C1 Nessie Python SDK documentation build configuration file, created by
-# sphinx-quickstart on Sun Apr 17 21:36:36 2016.
+# Nessie Python documentation build configuration file, created by
+# sphinx-quickstart on Sun Apr 17 22:53:14 2016.
 #
 # This file is execfile()d with the current directory set to its
 # containing dir.
@@ -31,6 +31,7 @@ sys.path.insert(0, os.path.abspath('../.'))
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.coverage',
+    'sphinxcontrib.napoleon'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -48,7 +49,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'C1 Nessie Python SDK'
+project = u'Nessie Python'
 copyright = u'2016, Andrew Alexander, Shane Besong'
 author = u'Andrew Alexander, Shane Besong'
 
@@ -111,7 +112,7 @@ todo_include_todos = False
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'default'
+html_theme = 'sphinx_rtd_theme'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -119,11 +120,11 @@ html_theme = 'default'
 #html_theme_options = {}
 
 # Add any paths that contain custom themes here, relative to this directory.
-#html_theme_path = []
+html_theme_path = ["_themes"]
 
 # The name for this set of Sphinx documents.
 # "<project> v<release> documentation" by default.
-#html_title = u'C1 Nessie Python SDK v0.1.0'
+#html_title = u'Nessie Python v0.1.0'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #html_short_title = None
@@ -205,7 +206,7 @@ html_static_path = ['_static']
 #html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'C1NessiePythonSDKdoc'
+htmlhelp_basename = 'NessiePythondoc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -227,7 +228,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'C1NessiePythonSDK.tex', u'C1 Nessie Python SDK Documentation',
+    (master_doc, 'NessiePython.tex', u'Nessie Python Documentation',
      u'Andrew Alexander, Shane Besong', 'manual'),
 ]
 
@@ -257,7 +258,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'c1nessiepythonsdk', u'C1 Nessie Python SDK Documentation',
+    (master_doc, 'nessiepython', u'Nessie Python Documentation',
      [author], 1)
 ]
 
@@ -271,8 +272,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'C1NessiePythonSDK', u'C1 Nessie Python SDK Documentation',
-     author, 'C1NessiePythonSDK', 'One line description of project.',
+    (master_doc, 'NessiePython', u'Nessie Python Documentation',
+     author, 'NessiePython', 'One line description of project.',
      'Miscellaneous'),
 ]
 

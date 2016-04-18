@@ -57,12 +57,12 @@ class Deposit():
             a 'create'.
 
         Format of PUT request:
-        'deposit': {
-            'medium': 'balance' | 'rewards',
-            'amount': int,
-            'description': 'string'
+        ::
+            deposit = {
+                'medium': 'balance' | 'rewards',
+                'amount': int,
+                'description': 'string'
             }
-        }
 
         Args:
             deposit_id: ID of the deposit to update
@@ -84,13 +84,14 @@ class Deposit():
         Create a new deposit to an acc_id
 
         Format of POST request:
-        'deposit': {
-            'medium': 'balance' | 'rewards',
-            'transaction_date': 'YYYY-MM-DD',
-            'status': 'pending' | 'cancelled' | 'recurring',
-            'amount': int,
-            'description': 'string'
-        }
+        ::
+            deposit = {
+                'medium': 'balance' | 'rewards',
+                'transaction_date': 'YYYY-MM-DD',
+                'status': 'pending' | 'cancelled' | 'recurring',
+                'amount': int,
+                'description': 'string'
+            }
 
         Args:
             acc_id: ID of the account to dump the new deposit into

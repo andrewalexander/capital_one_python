@@ -68,15 +68,16 @@ class Customer():
         Update customer information
 
         Format of PUT request:
-         'customer': {
-            'address': {
-                'street_number': '42',
-                'street_name': 'Life Universe Everything Way',
-                'city': 'Undefined',
-                'state': 'CO',
-                'zip': '42424'
+        ::
+            customer = {
+                'address': {
+                    'street_number': '42',
+                    'street_name': 'Life Universe Everything Way',
+                    'city': 'Undefined',
+                    'state': 'CO',
+                    'zip': '42424'
+                }
             }
-        }
 
         Args:
             cust_id: ID of the customer to update
@@ -99,17 +100,18 @@ class Customer():
         Create a new customer
 
         Format for POST request:
-        'customer': {
-            'address': {
-                'street_number': '1',
-                'street_name': 'Infinite Circle',
-                'city': 'Nontain View',
-                'state': 'CA',
-                'zip': '12345'
-            },
-            'first_name': 'Test',
-            'last_name': 'Customer'
-        }
+        ::
+            customer = {
+                'address': {
+                    'street_number': '1',
+                    'street_name': 'Infinite Circle',
+                    'city': 'Nontain View',
+                    'state': 'CA',
+                    'zip': '12345'
+                },
+                'first_name': 'Test',
+                'last_name': 'Customer'
+            }
 
         Args:
             customer: dict of new customer metadata

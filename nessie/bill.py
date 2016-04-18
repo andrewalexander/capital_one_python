@@ -6,6 +6,7 @@ import config
 class Bill():
     """ 
     Bill class - get/create/update bills for customer or account
+    
     """
 
     def __init__(self):
@@ -67,17 +68,19 @@ class Bill():
 
     def update_bill(self, bill_id, bill):
         """
-        Update metadata associated with a bill
-
+        Update metadata associated with a bill.
+        
         Format for PUT Request:
-        {
-          'status': 'pending' | 'cancelled' | 'completed' | 'recurring' ,
-          'payee': 'string',
-          'nickname': 'string',
-          'payment_date': 'YYYY-MM-DD',
-          'recurring_date': int [1-31],
-          'payment_amount': int
-        }
+        ::
+            {
+                'status': 'pending' | 'cancelled' | 'completed' | 'recurring' ,
+                'payee': 'string',
+                'nickname': 'string',
+                'payment_date': 'YYYY-MM-DD',
+                'recurring_date': int [1-31],
+                'payment_amount': int
+            }
+
 
         Args:
             bill_id: ID of the bill to update
@@ -99,14 +102,15 @@ class Bill():
         Create a new bill inside a given account
 
         Format for POST Request:
-        {
-          'status': 'pending' | 'cancelled' | 'completed' | 'recurring' ,
-          'payee': 'string',
-          'nickname': 'string',
-          'payment_date': 'YYYY-MM-DD',
-          'recurring_date': int [1-31],
-          'payment_amount: int
-        }
+        ::
+            {
+              'status': 'pending' | 'cancelled' | 'completed' | 'recurring' ,
+              'payee': 'string',
+              'nickname': 'string',
+              'payment_date': 'YYYY-MM-DD',
+              'recurring_date': int [1-31],
+              'payment_amount: int
+            }
 
         Args:
             acc_id: ID of the account where bill will be added

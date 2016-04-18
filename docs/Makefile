@@ -100,9 +100,9 @@ qthelp:
 	@echo
 	@echo "Build finished; now you can run "qcollectiongenerator" with the" \
 	      ".qhcp project file in $(BUILDDIR)/qthelp, like this:"
-	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/C1NessiePythonSDK.qhcp"
+	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/NessiePython.qhcp"
 	@echo "To view the help file:"
-	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/C1NessiePythonSDK.qhc"
+	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/NessiePython.qhc"
 
 .PHONY: applehelp
 applehelp:
@@ -119,8 +119,8 @@ devhelp:
 	@echo
 	@echo "Build finished."
 	@echo "To view the help file:"
-	@echo "# mkdir -p $$HOME/.local/share/devhelp/C1NessiePythonSDK"
-	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/C1NessiePythonSDK"
+	@echo "# mkdir -p $$HOME/.local/share/devhelp/NessiePython"
+	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/NessiePython"
 	@echo "# devhelp"
 
 .PHONY: epub

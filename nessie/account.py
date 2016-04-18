@@ -5,10 +5,13 @@ import config
 
 class Account:
     """
-    Account class - get/update account information
+    Account class - get/update account information.
+
+    Some of these functions require a customer ID that can be retrieved from the 
+    :ref: nessie.customer.Customer class.
 
     """
-    
+
     def __init__(self):
         self.base_url = config.base_url
         self.url_with_entity = self.base_url + '/accounts'
@@ -85,9 +88,10 @@ class Account:
         Updates account information for specified acc_id
 
         Format for PUT request:
-        {
-            'nickname': 'some string here'
-        }
+        ::
+            {
+                'nickname': 'some string here'
+            }
 
         Args:
             acc_id: account ID for account to update
@@ -110,19 +114,18 @@ class Account:
         Creates a new account for cust_id using the details in request_data
 
         Format for POST request:
-        {
-            'type': 'Checking' | 'Credit Card',
-            'nickname': 'string',
-            'rewards': int,
-            'balance': float
-        }
+        ::
+            {
+                'type': 'Checking' | 'Credit Card',
+                'nickname': 'string',
+                'rewards': int,
+                'balance': int
+            }
+    
 
-        Args:
-            cust_id: The owner of the new account we are creating
-            request_data: The dict containing the details of the new account following the format above
-        Returns:
-             dict with status code (201) and response object from Nessie backend with details about created object:
-             {
+        Format of response Object:
+        ::
+            {
                 "code": 201,
                 "message": "Account created",
                 "objectCreated": {
@@ -134,6 +137,13 @@ class Account:
                     "_id": "string"
                 }
              }
+
+        Args:
+            cust_id: The owner of the new account we are creating
+            request_data: The dict containing the details of the new account following the format above
+        Returns:
+             dict with status code (201) and response object from Nessie backend with details about created object
+             
         """
         url = '%s/customers/%s/accounts?key=%s' % (self.base_url, cust_id, self.api_key)
         headers = {'content-type': 'application/json'}
