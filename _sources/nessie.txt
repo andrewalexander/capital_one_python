@@ -1,9 +1,6 @@
 nessie package
 ==============
 
-Submodules
-----------
-
 nessie.account module
 ---------------------
 
