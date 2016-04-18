@@ -506,6 +506,17 @@ in 60+ individual API calls to Nessie.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
+<p>Format for PUT Request:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;pending&#39;</span> <span class="o">|</span> <span class="s1">&#39;cancelled&#39;</span> <span class="o">|</span> <span class="s1">&#39;completed&#39;</span> <span class="o">|</span> <span class="s1">&#39;recurring&#39;</span> <span class="p">,</span>
+    <span class="s1">&#39;payee&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;nickname&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;payment_date&#39;</span><span class="p">:</span> <span class="s1">&#39;YYYY-MM-DD&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;recurring_date&#39;</span><span class="p">:</span> <span class="nb">int</span> <span class="p">[</span><span class="mi">1</span><span class="o">-</span><span class="mi">31</span><span class="p">],</span>
+    <span class="s1">&#39;payment_amount&#39;</span><span class="p">:</span> <span class="nb">int</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
