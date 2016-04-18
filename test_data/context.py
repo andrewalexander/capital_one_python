@@ -109,3 +109,33 @@ customer = {
     }
 }
 
+deposit = {
+    'get_all_by_account_id': {
+        'acc_id': '56c66be7a73e492741508102'
+    },
+    'get_one': {
+        'deposit_id': '571420e58a710f8e12324a16'
+    },
+    'update_deposit': {
+        'deposit_id': '571420e58a710f8e12324a16',
+        'deposit': {
+            'medium': 'balance',
+            'amount': 666,
+            'description': 'Regular transfer for bills (deviled)'
+        }
+    },
+    'create_deposit': {
+        'acc_id': '56c66be7a73e492741508102',
+        'deposit': {
+            'medium': 'balance',
+            'transaction_date': '2016-04-17',
+            'status': 'pending',
+            'amount': 250,
+            'description': 'Regular transfer for bills'
+        }
+    },
+    'delete_deposit': {
+        'acc_id': '56c66be7a73e492741508102',
+        'deposit_id': 'string'
+    }
+}

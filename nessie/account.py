@@ -157,6 +157,5 @@ class Account:
         response = requests.delete(url)
 
         return {
-            'code': response.status_code,
-            'message': response.json().get('message', None)
+            'code': response.status_code
         }

@@ -35,40 +35,55 @@ class Deposit():
             'deposit': response.json()
         }
 
-    # PUT
-    # Deposit format
-    # {
-    # 'medium': "balance or rewards",
-    # 'amount': 0,
-    # 'description': ""
-    # }
-
     def update_deposit(self, deposit_id, deposit):
+        """
+        Update metadata associated with a deposit
+
+        Format of PUT request:
+        'deposit': {
+            'medium': 'balance' | 'rewards',
+            'amount': int,
+            'description': 'string'
+            }
+        }
+
+        Args:
+            deposit_id: ID of the deposit to update
+            deposit: dict containing the updated deposit metadata
+        Returns:
+            dict of status code (202) and response message from Nessie
+        """
         url = '%s/deposits/%s?key=%s' % (self.url_with_entity, deposit_id, self.api_key)
         headers = {'content-type': 'application/json'}
-        params = {'key': self.api_key}
-        response = requests.put(url, params=params, data=json.dumps(deposit), headers=headers)
+        response = requests.put(url, params=None, data=json.dumps(deposit), headers=headers)
 
         return {
             'code': response.status_code,
             'message': response.json().get('message', None)
         }
 
-    # POST
-    # Deposit format
-    # {
-    # 'medium': "balance or rewards",
-    # 'transaction_date': "",
-    # 'status': "pending or cancelled or recurring",
-    # 'amount': 0,
-    # 'description': ""
-    # }
+    def create_deposit(self, acc_id, deposit):
+        """
+        Create a new deposit to an acc_id
 
-    def create_deposit(self, toAcc, deposit):
-        url = '%s/%s/deposits?key=%s' % (self.url_with_entity, toAcc, self.api_key)
+        Format of POST request:
+        'deposit': {
+            'medium': 'balance' | 'rewards',
+            'transaction_date': 'YYYY-MM-DD',
+            'status': 'pending' | 'cancelled' | 'recurring',
+            'amount': int,
+            'description': 'string'
+        }
+
+        Args:
+            acc_id: ID of the account to dump the new deposit into
+            deposit: dict containing the new deposit metadata
+        Returns:
+            dict of status code (201) and response object from Nessie
+        """
+        url = '%s/%s/deposits?key=%s' % (self.url_with_entity, acc_id, self.api_key)
         headers = {'content-type': 'application/json'}
-        params = {'key': self.api_key}
-        response = requests.post(url, params=params, data=json.dumps(deposit), headers=headers)
+        response = requests.post(url, params=None, data=json.dumps(deposit), headers=headers)
 
         return {
             'code': response.status_code,
@@ -82,8 +97,7 @@ class Deposit():
         response = requests.delete(url)
 
         return {
-            'code': response.status_code,
-            'deposits': response.json()
+            'code': response.status_code
         }
 
 

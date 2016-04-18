@@ -42,7 +42,6 @@ class TestAccountClass(unittest.TestCase):
         # delete the account we just created
         response = self.account.delete_account(response['objectCreated']['_id'])
         self.assertEqual(response['code'], 204, msg='Received a {} status code'.format(response['code']))
-        self.assertEqual(response['message'], '', msg='Did not get an empty response (expected no response body)')
 
     # TODO:
     #   - make tests to handle the various exceptions (no API key, bad params, all the various failures the backend could throw, etc)
@@ -144,6 +143,36 @@ class TestCustomerClass(unittest.TestCase):
         self.assertEqual(response['code'], 201, msg='Received a {} status code'.format(response['code']))
         self.assertTrue(isinstance(response['message'], basestring), msg='Did not get a response')
         self.assertTrue(isinstance(response['objectCreated'], dict), msg='Did not get a response object')
+
+
+class TestDepositClass(unittest.TestCase):
+    deposit = deposit.Deposit()
+
+    def test_get_all_by_account_id(self):
+        response = self.deposit.get_all_by_account_id(**context.deposit['get_all_by_account_id'])
+        self.assertEqual(response['code'], 200, msg='Received a {} status code'.format(response['code']))
+        self.assertTrue(isinstance(response['deposits'], list), msg='Did not get a list of deposits')
+
+    def test_get_one(self):
+        response = self.deposit.get_one(**context.deposit['get_one'])
+        self.assertEqual(response['code'], 200, msg='Received a {} status code'.format(response['code']))
+        self.assertTrue(isinstance(response['deposit'], dict), msg='Did not get a deposit')
+
+    def test_update_deposit(self):
+        response = self.deposit.update_deposit(**context.deposit['update_deposit'])
+        self.assertEqual(response['code'], 202, msg='Received a {} status code'.format(response['code']))
+        self.assertTrue(isinstance(response['message'], basestring), msg='Did not get a response')
+
+    def test_create_and_delete_deposit(self):
+        response = self.deposit.create_deposit(**context.deposit['create_deposit'])
+        self.assertEqual(response['code'], 201, msg='Received a {} status code'.format(response['code']))
+        self.assertTrue(isinstance(response['message'], basestring), msg='Did not get a response')
+        self.assertTrue(isinstance(response['objectCreated'], dict), msg='Did not get a response object')
+
+        # now delete the object we just created
+        context.deposit['delete_deposit']['deposit_id'] = response['objectCreated']['_id']
+        response = self.deposit.delete_deposit(**context.deposit['delete_deposit'])
+        self.assertEqual(response['code'], 204, msg='Received a {} status code'.format(response['code']))
 
 
 if __name__ == '__main__':
