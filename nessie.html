@@ -152,14 +152,14 @@
 <dt id="nessie.account.Account.create_account">
 <code class="descname">create_account</code><span class="sig-paren">(</span><em>cust_id</em>, <em>request_data</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.account.Account.create_account" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a new account for cust_id using the details in request_data</p>
-<p>Format for POST request:
+<p>Format for POST request:``
 {</p>
 <blockquote>
 <div>&#8216;type&#8217;: &#8216;Checking&#8217; | &#8216;Credit Card&#8217;,
 &#8216;nickname&#8217;: &#8216;string&#8217;,
 &#8216;rewards&#8217;: int,
 &#8216;balance&#8217;: float</div></blockquote>
-<p>}</p>
+<p>}``</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -170,13 +170,9 @@
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>dict with status code</strong></p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><p>201</p>
-<dl class="docutils">
-<dt>::{</dt>
-<dd><blockquote class="first">
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p><strong>dict with status code</strong> &#8211; ``
+{</p>
+<blockquote>
 <div><p>&#8220;code&#8221;: 201,
 &#8220;message&#8221;: &#8220;Account created&#8221;,
 &#8220;objectCreated&#8221;: {</p>
@@ -190,10 +186,11 @@
 </div></blockquote>
 <p>}</p>
 </div></blockquote>
-<p class="last">}</p>
-</dd>
-</dl>
+<p>}``</p>
 </p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">201</p>
 </td>
 </tr>
 </tbody>
