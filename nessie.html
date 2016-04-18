@@ -584,22 +584,20 @@ in 60+ individual API calls to Nessie.</p>
 <dt id="nessie.customer.Customer.create_customer">
 <code class="descname">create_customer</code><span class="sig-paren">(</span><em>customer</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.customer.Customer.create_customer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new customer</p>
-<p>Format for POST request:
-&#8216;customer&#8217;: {</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>&#8216;address&#8217;: {</dt>
-<dd>&#8216;street_number&#8217;: &#8216;1&#8217;,
-&#8216;street_name&#8217;: &#8216;Infinite Circle&#8217;,
-&#8216;city&#8217;: &#8216;Nontain View&#8217;,
-&#8216;state&#8217;: &#8216;CA&#8217;,
-&#8216;zip&#8217;: &#8216;12345&#8217;</dd>
-</dl>
-<p>},
-&#8216;first_name&#8217;: &#8216;Test&#8217;,
-&#8216;last_name&#8217;: &#8216;Customer&#8217;</p>
-</div></blockquote>
-<p>}</p>
+<p>Format for POST request:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">customer</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;street_number&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;street_name&#39;</span><span class="p">:</span> <span class="s1">&#39;Infinite Circle&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;city&#39;</span><span class="p">:</span> <span class="s1">&#39;Nontain View&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="s1">&#39;CA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;zip&#39;</span><span class="p">:</span> <span class="s1">&#39;12345&#39;</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;first_name&#39;</span><span class="p">:</span> <span class="s1">&#39;Test&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;last_name&#39;</span><span class="p">:</span> <span class="s1">&#39;Customer&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -662,24 +660,18 @@ in 60+ individual API calls to Nessie.</p>
 <dt id="nessie.customer.Customer.update_customer">
 <code class="descname">update_customer</code><span class="sig-paren">(</span><em>cust_id</em>, <em>customer</em><span class="sig-paren">)</span><a class="headerlink" href="#nessie.customer.Customer.update_customer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update customer information</p>
-<dl class="docutils">
-<dt>Format of PUT request:</dt>
-<dd><dl class="first last docutils">
-<dt>&#8216;customer&#8217;: {</dt>
-<dd><dl class="first docutils">
-<dt>&#8216;address&#8217;: {</dt>
-<dd>&#8216;street_number&#8217;: &#8216;42&#8217;,
-&#8216;street_name&#8217;: &#8216;Life Universe Everything Way&#8217;,
-&#8216;city&#8217;: &#8216;Undefined&#8217;,
-&#8216;state&#8217;: &#8216;CO&#8217;,
-&#8216;zip&#8217;: &#8216;42424&#8217;</dd>
-</dl>
-<p class="last">}</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<p>}</p>
+<p>Format of PUT request:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">customer</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;street_number&#39;</span><span class="p">:</span> <span class="s1">&#39;42&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;street_name&#39;</span><span class="p">:</span> <span class="s1">&#39;Life Universe Everything Way&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;city&#39;</span><span class="p">:</span> <span class="s1">&#39;Undefined&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="s1">&#39;CO&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;zip&#39;</span><span class="p">:</span> <span class="s1">&#39;42424&#39;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
