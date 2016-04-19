@@ -4,7 +4,7 @@ nessie package
 nessie.account module
 ---------------------
 
-.. automodule:: nessie.account
+.. autoclass:: nessie.account
     :members:
     :undoc-members:
     :show-inheritance:
@@ -12,7 +12,7 @@ nessie.account module
 nessie.atm module
 -----------------
 
-.. automodule:: nessie.atm
+.. autoclass:: nessie.atm
     :members:
     :undoc-members:
     :show-inheritance:
@@ -20,7 +20,7 @@ nessie.atm module
 nessie.bill module
 ------------------
 
-.. automodule:: nessie.bill
+.. autoclass:: nessie.bill
     :members:
     :undoc-members:
     :show-inheritance:
@@ -28,7 +28,7 @@ nessie.bill module
 nessie.branch module
 --------------------
 
-.. automodule:: nessie.branch
+.. autoclass:: nessie.branch
     :members:
     :undoc-members:
     :show-inheritance:
@@ -36,7 +36,7 @@ nessie.branch module
 nessie.config module
 --------------------
 
-.. automodule:: nessie.config
+.. autoclass:: nessie.config
     :members:
     :undoc-members:
     :show-inheritance:
@@ -44,7 +44,7 @@ nessie.config module
 nessie.customer module
 ----------------------
 
-.. automodule:: nessie.customer
+.. autoclass:: nessie.customer
     :members:
     :undoc-members:
     :show-inheritance:
@@ -52,7 +52,7 @@ nessie.customer module
 nessie.deposit module
 ---------------------
 
-.. automodule:: nessie.deposit
+.. autoclass:: nessie.deposit
     :members:
     :undoc-members:
     :show-inheritance:
@@ -60,7 +60,7 @@ nessie.deposit module
 nessie.merchant module
 ----------------------
 
-.. automodule:: nessie.merchant
+.. autoclass:: nessie.merchant
     :members:
     :undoc-members:
     :show-inheritance:
@@ -68,7 +68,7 @@ nessie.merchant module
 nessie.purchase module
 ----------------------
 
-.. automodule:: nessie.purchase
+.. autoclass:: nessie.purchase
     :members:
     :undoc-members:
     :show-inheritance:
@@ -76,7 +76,7 @@ nessie.purchase module
 nessie.transfer module
 ----------------------
 
-.. automodule:: nessie.transfer
+.. autoclass:: nessie.transfer
     :members:
     :undoc-members:
     :show-inheritance:
@@ -84,7 +84,7 @@ nessie.transfer module
 nessie.withdrawal module
 ------------------------
 
-.. automodule:: nessie.withdrawal
+.. autoclass:: nessie.withdrawal
     :members:
     :undoc-members:
     :show-inheritance:
@@ -93,7 +93,7 @@ nessie.withdrawal module
 Module contents
 ---------------
 
-.. automodule:: nessie
+.. autoclass:: nessie
     :members:
     :undoc-members:
     :show-inheritance:
