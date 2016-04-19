@@ -4,96 +4,96 @@ nessie package
 nessie.account module
 ---------------------
 
-.. autoclass:: nessie.account
+.. automodule:: nessie.account
     :members:
     :undoc-members:
-    :show-inheritance:
+    
 
 nessie.atm module
 -----------------
 
-.. autoclass:: nessie.atm
+.. automodule:: nessie.atm
     :members:
     :undoc-members:
-    :show-inheritance:
+    
 
 nessie.bill module
 ------------------
 
-.. autoclass:: nessie.bill
+.. automodule:: nessie.bill
     :members:
     :undoc-members:
-    :show-inheritance:
+    
 
 nessie.branch module
 --------------------
 
-.. autoclass:: nessie.branch
+.. automodule:: nessie.branch
     :members:
     :undoc-members:
-    :show-inheritance:
+    
 
 nessie.config module
 --------------------
 
-.. autoclass:: nessie.config
+.. automodule:: nessie.config
     :members:
     :undoc-members:
-    :show-inheritance:
+    
 
 nessie.customer module
 ----------------------
 
-.. autoclass:: nessie.customer
+.. automodule:: nessie.customer
     :members:
     :undoc-members:
-    :show-inheritance:
+    
 
 nessie.deposit module
 ---------------------
 
-.. autoclass:: nessie.deposit
+.. automodule:: nessie.deposit
     :members:
     :undoc-members:
-    :show-inheritance:
+    
 
 nessie.merchant module
 ----------------------
 
-.. autoclass:: nessie.merchant
+.. automodule:: nessie.merchant
     :members:
     :undoc-members:
-    :show-inheritance:
+    
 
 nessie.purchase module
 ----------------------
 
-.. autoclass:: nessie.purchase
+.. automodule:: nessie.purchase
     :members:
     :undoc-members:
-    :show-inheritance:
+    
 
 nessie.transfer module
 ----------------------
 
-.. autoclass:: nessie.transfer
+.. automodule:: nessie.transfer
     :members:
     :undoc-members:
-    :show-inheritance:
+    
 
 nessie.withdrawal module
 ------------------------
 
-.. autoclass:: nessie.withdrawal
+.. automodule:: nessie.withdrawal
     :members:
     :undoc-members:
-    :show-inheritance:
+    
 
 
 Module contents
 ---------------
 
-.. autoclass:: nessie
+.. automodule:: nessie
     :members:
     :undoc-members:
-    :show-inheritance:
+    
