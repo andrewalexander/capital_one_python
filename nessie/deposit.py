@@ -73,7 +73,7 @@ class Deposit():
         url = '%s/deposits/%s?key=%s' % (self.base_url, deposit_id, self.api_key)
         headers = {'content-type': 'application/json'}
         response = requests.put(url, params=None, data=json.dumps(deposit), headers=headers)
-        print response.content
+
         return {
             'code': response.status_code,
             'message': response.json().get('message', None)

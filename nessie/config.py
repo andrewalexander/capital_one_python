@@ -1,2 +1,2 @@
-base_url = 'http://api.reimaginebanking'
-api_key = 
+base_url = 'http://api.reimaginebanking.com'
+api_key = ''

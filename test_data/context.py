@@ -134,7 +134,6 @@ deposit = {
         }
     },
     'delete_deposit': {
-        'acc_id': '56c66be7a73e492741508102',
         'deposit_id': 'string'
     }
 }
