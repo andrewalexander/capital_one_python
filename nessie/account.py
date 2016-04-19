@@ -8,7 +8,7 @@ class Account:
     Account class - get/update account information.
 
     Some of these functions require a customer ID that can be retrieved from the 
-    :ref: nessie.customer.Customer class.
+    :meth:`nessie.customer.Customer` class.
 
     """
 

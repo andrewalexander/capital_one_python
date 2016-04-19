@@ -2,6 +2,6 @@ nessie
 ======
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 5
 
    nessie

@@ -10,9 +10,8 @@ Contents:
 =========
 
 .. toctree::
-   :maxdepth: 2
    
-		nessie 		<nessie.rst>
+		modules		<modules.rst>
 
 
 
