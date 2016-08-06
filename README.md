@@ -6,7 +6,26 @@ http://andrewalexander.github.io/capital_one_python/
 
 Please note, this is still in the development phase and not all classes are ready for use.
 
-TODO:
-* Clean up code; add inheritance after functionality is finished
-* Decide on a test framework and write tests
-* Publish to allow people to import the API wrapper for Python projects
+## Getting Started
+
+### Install nessie with [pip](https://pip.pypa.io/en/stable/installing/)
+
+** this package is not yet published, so at the time of writing, the `pip install` will not work. **
+```
+	pip install nessie 					# you may need to `sudo pip install nessie` depending on your env 
+```
+
+### Import nessie in your project 
+
+You can `import nessie` to import all modules:
+```
+	import nessie
+```
+
+Or you can just import the modules you want:
+```
+	from nessie import customer
+	from nessie import account
+```
+
+### 
