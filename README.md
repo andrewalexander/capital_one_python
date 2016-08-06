@@ -1,10 +1,10 @@
-# capital_one_python
-Python wrapper for Capital One's hackathon API
+# Nessie Python SDK
+
+This package allows a developer to easily interact with the Capital
+One Hackathon API, named Nessie.
 
 Docs:
 http://andrewalexander.github.io/capital_one_python/
-
-Please note, this is still in the development phase and not all classes are ready for use.
 
 ## Getting Started
 
@@ -15,17 +15,21 @@ Please note, this is still in the development phase and not all classes are read
 	pip install nessie 					# you may need to `sudo pip install nessie` depending on your env 
 ```
 
-### Import nessie in your project 
+## Usage:
+```
+import nessie
 
-You can `import nessie` to import all modules:
-```
-	import nessie
-```
-
-Or you can just import the modules you want:
-```
-	from nessie import customer
-	from nessie import account
+client = nessie.handler.NessieClient('my_api_key_here', 'customer' | 'enterprise')
+accounts = client.api_call('accounts')
+account_from_id = client.api_call('accounts/abcd1234abcd1234')
 ```
 
-### 
+Response structure is always of the form:
+```
+{
+    'status_code': Integer of HTTP Status Code,
+    'response': String of HTTP Status Reason/Response,
+    'requests_response': Raw <Requests.Response> object from the requests library,
+    'content': Dict containing the response from Nessie
+}
+```
