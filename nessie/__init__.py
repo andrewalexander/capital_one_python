@@ -22,4 +22,4 @@ Response structure is always of the form:
 }
 """
 
-import handler
+from handler import NessieClient
