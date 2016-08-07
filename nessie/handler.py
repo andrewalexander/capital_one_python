@@ -1,5 +1,6 @@
 import requests
 import six
+import json
 
 VALID_BASE_ENDPOINTS = [
     'accounts',
@@ -37,7 +38,7 @@ VALID_TYPES = [
 class NessieClient:
     def __init__(self, api_key, client_type):
         self._validate_client_inputs(api_key, client_type)
-        self.base_url = 'http://api.reimaginebanking.com/{}?key={}'.format('{}', api_key)
+        self.base_url = 'http://api.reimaginebanking.com/{}'
 
     def _validate_client_inputs(self, api_key, client_type):
         if len(api_key) == 32:
@@ -85,22 +86,18 @@ class NessieClient:
         self._validate_api_inputs(endpoint, method)
 
         payload = payload or {}
-
-        for k, v in six.iteritems(payload):
-            if not isinstance(v, six.string_types):
-                payload[k] = json.dumps(v)
-
-        url = self.base_url.format(endpoint, api_key)
+        url = self.base_url.format(endpoint)
+        url_params = {'key': self.api_key}
 
         try:
             if method == 'GET':
-                response = requests.get(url)
+                response = requests.get(url, params=url_params)
             elif method == 'POST':
-                response = requests.post(url, data=payload)
+                response = requests.post(url, params=url_params, json=payload)
             elif method == 'PUT':
-                response = requests.put(url, data=payload)
+                response = requests.put(url, params=url_params, json=payload)
             elif method == 'DELETE':
-                response = requests.delete(url)
+                response = requests.delete(url, params=url_params)
         except requests.exceptions.ConnectionError as e:
             raise Exception('There was an issue hitting the Nessie API. Stacktrace: {}'.format(e))
         except requests.exceptions.Timeout as e:
