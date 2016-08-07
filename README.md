@@ -16,8 +16,21 @@ http://andrewalexander.github.io/capital_one_python/
 ```
 
 ## Usage:
-Using this SDK is as simple as passing any API endpoint listed on [Nessie documentation](http://api.reimaginebanking.com/documentation) to the `NessieClient.api_call()` method, as well as what kind of method it is is (`GET`, `POST`, `PUT`, or `DELETE`) 
+Using this SDK is as simple as passing any API endpoint listed on the [Nessie documentation](http://api.reimaginebanking.com/documentation) to the `NessieClient.api_call()` method, as well as what kind of method it is is (`GET`, `POST`, `PUT`, or `DELETE`) 
 
+The parser validates each component of the endpoint separately, and at the time of writing, all endpoints listed at the documentation website were fully functional. 
+
+Response structure is always of the form:
+```
+{
+    'status_code': Integer of HTTP Status Code,
+    'response': String of HTTP Status Reason/Response,
+    'requests_response': Raw <Requests.Response> object from the requests library,
+    'content': Dict containing the response from Nessie
+}
+```
+
+### Example code
 ```
 import nessie
 
@@ -45,18 +58,8 @@ my_data = {
 }
 customer_id = '56c66be6a73e4927415074ca'
 create_account = client.api_call('customers/{}/accounts'.format(customer_id), 'POST', my_data)
-create_account
+>>> create_account
+{'content': {u'message': u'Account created', u'code': 201, u'objectCreated': {u'rewards': 42, u'nickname': u'My New Capital One Card!', u'_id': u'57a79050bc727e4b519f2562', u'balance': 9001, u'customer_id': u'56c66be6a73e4927415074ca', u'type': u'Credit Card'}}, 'status_code': 201, 'response': 'Created', 'requests_response': <Response [201]>}
 
 ```
 
-The parser validates each component of the endpoint separately, and at the time of writing, all endpoints listed at the [Nessie documentation](http://api.reimaginebanking.com/documentation) were fully functional. 
-
-Response structure is always of the form:
-```
-{
-    'status_code': Integer of HTTP Status Code,
-    'response': String of HTTP Status Reason/Response,
-    'requests_response': Raw <Requests.Response> object from the requests library,
-    'content': Dict containing the response from Nessie
-}
-```
