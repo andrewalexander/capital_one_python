@@ -34,7 +34,7 @@ Response structure is always of the form:
 ```
 import nessie
 
-client = nessie.handler.NessieClient('my_api_key_here', 'customer' | 'enterprise')
+client = nessie.NessieClient('my_api_key_here', 'customer' | 'enterprise')
 # Get all accounts
 accounts = client.api_call('accounts', 'GET')
 
