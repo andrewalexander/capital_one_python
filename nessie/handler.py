@@ -115,12 +115,3 @@ class NessieClient:
             'content': response.json()
         }
         return response_body
-
-if __name__ == '__main__':
-    api_key = '0d243c701f2b9721efb82640b83e13eb'
-    test_string = 'enterprise/customers/56c66be6a73e4927415074ca'
-    method = 'GET'
-    client_type = 'enterprise'
-    client = NessieClient(api_key, client_type)
-    resp = client.api_call(test_string, method)
-    print(resp)
