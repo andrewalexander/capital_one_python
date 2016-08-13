@@ -1,7 +1,7 @@
 nessie package
 ==============
 
-nessie.account module
+nessie.NessieClient module
 ---------------------
 
 .. automodule:: nessie.handler
