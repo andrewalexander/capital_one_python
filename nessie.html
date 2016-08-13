@@ -156,14 +156,13 @@
 <p>Nessie Python SDK</p>
 <p>This package allows a developer to easily interact with the Capital
 One Hackathon API, named Nessie.</p>
-<p>Example::</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">nessie</span>
-
-<span class="n">client</span> <span class="o">=</span> <span class="n">nessie</span><span class="o">.</span><span class="n">handler</span><span class="o">.</span><span class="n">NessieClient</span><span class="p">(</span><span class="s">&#39;my_api_key_here&#39;</span><span class="p">,</span> <span class="s">&#39;customer&#39;</span> <span class="o">|</span> <span class="s">&#39;enterprise&#39;</span><span class="p">)</span>
-<span class="n">accounts</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">api_call</span><span class="p">(</span><span class="s">&#39;accounts&#39;</span><span class="p">)</span>
-<span class="n">account_from_id</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">api_call</span><span class="p">(</span><span class="s">&#39;accounts/abcd1234abcd1234&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
+<p class="rubric">Example</p>
+<p>::
+import nessie</p>
+<p>::
+client = nessie.handler.NessieClient(&#8216;my_api_key_here&#8217;, &#8216;customer&#8217; | &#8216;enterprise&#8217;)
+accounts = client.api_call(&#8216;accounts&#8217;)
+account_from_id = client.api_call(&#8216;accounts/abcd1234abcd1234&#8217;)</p>
 <p>Response structure is always of the form:
 {</p>
 <blockquote>
