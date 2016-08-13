@@ -164,18 +164,15 @@ One Hackathon API, named Nessie.</p>
 <span class="n">account_from_id</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">api_call</span><span class="p">(</span><span class="s">&#39;accounts/abcd1234abcd1234&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<dl class="docutils">
-<dt>Response structure is always of the form:::</dt>
-<dd><dl class="first docutils">
-<dt>{</dt>
-<dd>&#8216;status_code&#8217;: Integer of HTTP Status Code,
-&#8216;response&#8217;: String of HTTP Status Reason/Response,
-&#8216;requests_response&#8217;: Raw &lt;Requests.Response&gt; object from the requests library,
-&#8216;content&#8217;: Dict containing the response from Nessie</dd>
-</dl>
-<p class="last">}</p>
-</dd>
-</dl>
+<p>Response structure is always of the form::</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&#39;status_code&#39;</span><span class="p">:</span> <span class="n">Integer</span> <span class="n">of</span> <span class="n">HTTP</span> <span class="n">Status</span> <span class="n">Code</span><span class="p">,</span>
+    <span class="s">&#39;response&#39;</span><span class="p">:</span> <span class="n">String</span> <span class="n">of</span> <span class="n">HTTP</span> <span class="n">Status</span> <span class="n">Reason</span><span class="o">/</span><span class="n">Response</span><span class="p">,</span>
+    <span class="s">&#39;requests_response&#39;</span><span class="p">:</span> <span class="n">Raw</span> <span class="o">&lt;</span><span class="n">Requests</span><span class="o">.</span><span class="n">Response</span><span class="o">&gt;</span> <span class="nb">object</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">requests</span> <span class="n">library</span><span class="p">,</span>
+    <span class="s">&#39;content&#39;</span><span class="p">:</span> <span class="n">Dict</span> <span class="n">containing</span> <span class="n">the</span> <span class="n">response</span> <span class="kn">from</span> <span class="nn">Nessie</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div>
 </div>
 
